@@ -1,0 +1,44 @@
+.contact-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.application-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40vh;
+  width: 50%;
+}
+
+.application-form input {
+  padding: 25px;
+}
+
+.application-form-label {
+  width: 50%;
+  padding: 25px 0 10px 0;
+}
+
+.fts-map-location {
+  height: auto;
+  width: 50%;
+}
+
+.contact-content-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.location-info-container {
+  display: flex;
+  justify-content: space-evenly;
+
+}

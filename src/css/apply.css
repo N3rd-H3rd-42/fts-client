@@ -1,0 +1,88 @@
+/* style sheet for apply page */
+.apply-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.apply-container h3 {
+  font-size: 30px;
+}
+
+.apply-container p {
+  font-size: 20px;
+}
+
+.apply-container ul,li {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.apply-title {
+  width: 80%;
+}
+
+.apply-details-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apply-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.application-section-container {
+  width: 100%;
+  height: auto;
+  padding: 25px;
+  display: flex;
+  background-color: rgb(218, 62, 62);
+  color: white;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.application-form {
+  width: 35%;
+  height: auto;
+  /* border: 5px solid white; */
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.application-form input {
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.apply-button {
+  height: 50px;
+  width: 25%;
+  border-radius: 10px;
+  background-color: rgb(185, 28, 28);
+  border: none;
+  color: white;
+  float: right;
+  margin-top: 25px;
+}
+
+.apply-button:hover {
+  background-color: rgba(238, 48, 48, 0.562);
+  transition: ease-in-out;
+  border: 5px solid rgba(209, 84, 84, 0.95);
+}
+
+.form-container-side-image {
+  width: 20%;
+  height: auto;
+  border-radius: 10px;
+}
