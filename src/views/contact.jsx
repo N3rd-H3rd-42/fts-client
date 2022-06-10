@@ -7,25 +7,25 @@ const Contact = () => {
     <div className="contact-container">
       <PageHeading>CONTACT US</PageHeading>
 
-      <div class="apply-details-container">
+      <div className="apply-details-container">
         <h3>Please complete the contact form below.</h3>
       </div>
 
-      <div class="application-form-container">
-        <form action="" class="application-form">
-          <label class="application-form-label" for="name">
+      <div className="application-form-container">
+        <form action="" className="application-form">
+          <label className="application-form-label" for="name">
             Name
           </label>
           <input type="text" />
-          <label class="application-form-label" for="name">
+          <label className="application-form-label" for="name">
             Email
           </label>
           <input type="text" />
-          <label class="application-form-label" for="name">
+          <label className="application-form-label" for="name">
             Phone
           </label>
           <input type="text" />
-          <label class="application-form-label" for="name">
+          <label className="application-form-label" for="name">
             Message
           </label>
           <input type="text" />

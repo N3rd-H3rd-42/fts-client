@@ -9,9 +9,9 @@ const DriveWithFts = () => {
 
   return (
     <div id="drive-with-fts">
-      <div class="drive-with-fts-overlay"></div>
+      <div className="drive-with-fts-overlay"></div>
 
-      <div class="drive-with-fts-container">
+      <div className="drive-with-fts-container">
         <h1>DRIVE WITH FTS</h1>
         <h3>
           Drive with FTS, we are safe, fast and reliable. Partners across
@@ -28,10 +28,10 @@ const DriveWithFts = () => {
           quibusdam aut delectus cum aperiam placeat!
         </p>
 
-        <button onClick={handleClick} class="home-apply-btn">APPLY</button>
+        <button onClick={handleClick} className="home-apply-btn">APPLY</button>
       </div>
 
-      <div class="bottom-overlay">
+      <div className="bottom-overlay">
         <p>
           Future Trans Systems is a reliable medical transportation service.
           Ride Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/navbar.css";
+import Modal from "../reusableComponents/modal/modal";
 
 const NavBar = () => {
-  
+  const [display, setDisplay] = useState(false);
+
+  const close = () => {
+    setDisplay(false);
+  };
+
   return (
     <nav id="navbar" className="navbar navbar-container">
       <div className="nav-logo-container">
@@ -11,9 +17,13 @@ const NavBar = () => {
 
       <div className="nav-links-wrapper">
         <div className="top-nav-items-container">
-          <a className="nav-link ride-anchor" href="/">
+          <button
+            className="nav-link ride-anchor"
+            href="/"
+            onClick={() => setDisplay(!display)}
+          >
             RIDE WITH US
-          </a>
+          </button>
           <a className="nav-link nav-home-anchor" href="/">
             HOME
           </a>
@@ -37,6 +47,21 @@ const NavBar = () => {
         221-0141
       </a>
       <i className="fa-solid fa-bars mobile-nav-toggle" />
+      <Modal display={display} close={close}>
+        <div className="modalTitleContainer">
+          <h2>Please complete the request form below.</h2>
+        </div>
+        <input type="text" placeholder="enter your name" />
+        <input type="text" placeholder="enter your phone number" />
+        <input type="text" placeholder="are you a case manager?" />
+        <input type="text" placeholder="are you a patient?" />
+        <input type="text" placeholder="enter your ACCCHS id" />
+        <input type="date" />
+        <input type="time" />
+        <button className="modalSubmitBtn" type="submit">
+          CONFIRM REQUEST
+        </button>
+      </Modal>
     </nav>
   );
 };
