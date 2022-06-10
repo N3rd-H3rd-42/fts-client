@@ -4,80 +4,71 @@ import "../css/about.css";
 
 const About = () => {
   return (
-      <div className="about-container">
-        <PageHeading>ABOUT US</PageHeading>
-        <div className="about-content">
-          <div className="about-top-section">
-            <div className="about-content-section-1">
-              <div className="map-overlay">
-                <p>Servicing the valley and beyond</p>
-                <p className="map-description">
-                  map *Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ullam culpa, quod sunt asperiores mollitia dolorem fugit id
-                  unde enim veniam quos, quam aliquid a. Aperiam est ex
-                  quibusdam esse voluptatibus.
-                </p>
-              </div>
+    <div className="about-container">
+      <PageHeading>ABOUT US</PageHeading>
+      <div className="about-section-1">
+        <h1>It's What We Do.</h1>
+        <div className="heading-underline"></div>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos totam
+          rerum ab, sit voluptatem ea, nobis vitae deleniti aliquid quasi
+          suscipit accusantium esse, omnis nemo voluptatum. Velit quisquam atque
+          maxime. Deserunt voluptas, ab modi at debitis iure unde, doloribus non
+          alias, illo nesciunt ipsa atque. Libero voluptate perferendis quis
+          repellat. Numquam doloremque, distinctio debitis eum vel similique
+          quae temporibus perspiciatis?
+        </p>
+      </div>
+      <div className="about-content">
 
-              <img
-                src="images/medical_clinic.jpg"
-                alt="med-doc"
-                style={{ padding: "20px", height: "500px" }}
-              />
-              <h2 className="about-top-heading">ABOT FUTURE TRANS SYSTEMS</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Nostrum quae ab obcaecati, aut at quasi Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Aliquid aperiam nesciunt modi
-                laborum, cum velit possimus consequuntur error, nobis quidem quo
-                soluta mollitia quasi molestias laudantium. Voluptates ducimus
-                esse asperiores? Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Esse odio ea fugit magnam voluptatum
-                voluptatem totam. Possimus quibusdam et voluptate est, earum,
-                totam quis sequi veritatis suscipit itaque neque eius?
-                aspernatur evur eveniet quibus.
-              </p>
-            </div>
-          </div>
+        <div className="about-section-2">
+          <h1>Our Mission</h1>
+          <div
+            className="heading-underline"
+            style={{ borderTop: "3px solid #ff0000", width: "170px" }}
+          ></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit
+            exercitationem dolorem sapiente neque eum aliquam accusamus quaerat
+            soluta nemo tempore maiores aspernatur rerum numquam odit, tenetur
+            laudantium laborum corporis eaque. Iure dicta error doloribus culpa
+            deleniti officia sapiente rerum dolorum deserunt sint beatae quidem
+            vero, magnam fugit distinctio, ut neque reprehenderit quos, amet
+            quae unde voluptatem illo. Magnam, nisi recusandae.
+          </p>
+        </div>
 
-          <ul className="about-fts-top-list">
-            <li className="about-fts-top-item">stuff</li>
-            <li className="about-fts-top-item">stuff</li>
-            <li className="about-fts-top-item">stuff</li>
-            <li className="about-fts-top-item">stuff</li>
-            <li className="about-fts-top-item">stuff</li>
-            <li className="about-fts-top-item">stuff</li>
-          </ul>
-
-          <div className="about-bottom-section">
-            <p>
-              about us Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Consequatur numquam repudiandae expedita consectetur ex facilis
-              accusamus architecto laboriosam laborum nobis reiciendis sapiente
-              deserunt quam voluptate sint soluta odit, aspernatur tempore
-              xpedita consectetur ex facilis accusamus architecto laboriosam
-              laborum nobis reiciendis sapiente deserunt quam voluptate sint
-              soluta odit, aspernatur tempore. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Omnis, nulla nostrum. Animi
-              excepturi, iusto harum rerum magni dolorum adipisci pariatur
-              delectus. Beatae culpa vel consequuntur minima repudiandae
-              dignissimos atque dicta!
-            </p>
-          </div>
-
-          <div>
-            <h3>Why FTS?</h3>
-            <ul className="why-fts-list">
-              <li className="why-fts-list-item">fast</li>
-              <li className="why-fts-list-item">quick</li>
-              <li className="why-fts-list-item">free</li>
-              <li className="why-fts-list-item">time</li>
-              <li className="why-fts-list-item">money</li>
-              <li className="why-fts-list-item">more</li>
-            </ul>
-          </div>
+        <div className="about-section-3">
+          <h2>Our Partners</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
+            officia doloremque, perspiciatis eligendi provident hic quaerat
+            aspernatur rerum cumque qui porro, tempora harum ducimus error ad
+            accusamus architecto nostrum quis? Illo alias aut accusantium
+            adipisci est ab temporibus quibusdam culpa tempore corporis quaerat
+            quod magnam commodi consectetur id laudantium obcaecati repudiandae
+            nisi eum aperiam, reprehenderit ad asperiores eos eligendi?
+            Provident.
+          </p>
         </div>
       </div>
+      <div className="about-section-bottom-banner">
+        <div className="about-section-bottom-banner-overlay">
+          <div className="about-bottom-banner-text">
+            <h1>WE WANT TO CARE FOR YOU</h1>
+            <div className="heading-underline" style={{ width: "200px" }}></div>
+            <h2>LET US DRIVE YOU TO YOUR NEXT APPOINTMENT</h2>
+          </div>
+          <button className="about-request-a-ride-btn">
+            REQUEST A RIDE{" "}
+            <i
+              className="fa-solid fa-arrow-right fa-1x"
+              style={{ marginLeft: "5px" }}
+            ></i>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
