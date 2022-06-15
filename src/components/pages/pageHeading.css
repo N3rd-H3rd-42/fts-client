@@ -1,14 +1,14 @@
 /* style sheet for contact page */
 .overlay {
     position: absolute;
-    background-color: rgba(27, 27, 27, 0.219);
+    background-color: rgba(102, 50, 50, 0.356);
     height: 30vh;
     width: 100%;
   }
   
   .heading-h1 {
     position: relative;
-    padding-left: 20px;
+    text-align: center;
   }
   
   .heading-container {
@@ -19,7 +19,7 @@
     background-size: cover;
     background-position: left;
     color: rgb(243, 242, 242);
-    font-size: 48px;
+    font-size: 2.25em;
     text-shadow: 3px 1px 3px rgb(37, 37, 37);
     display: flex;
     align-items: center;

@@ -33,8 +33,8 @@ const Footer = () => {
           <i
             className="fa-solid fa-envelope fa-2x"
             style={{ paddingRight: "10px", color: "black" }}
-          ></i>{" "}
-          CONTACT US{" "}
+          ></i>
+          CONTACT US
         </h2>
         <input type="text" name="name" placeholder="Enter your name" />
         <input type="text" name="email" placeholder="Enter your email" />

@@ -19,8 +19,8 @@ const About = () => {
           quae temporibus perspiciatis?
         </p>
       </div>
-      <div className="about-content">
 
+      <div className="about-content">
         <div className="about-section-2">
           <h1>Our Mission</h1>
           <div
@@ -39,25 +39,64 @@ const About = () => {
         </div>
 
         <div className="about-section-3">
-          <h2>Our Partners</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
-            officia doloremque, perspiciatis eligendi provident hic quaerat
-            aspernatur rerum cumque qui porro, tempora harum ducimus error ad
-            accusamus architecto nostrum quis? Illo alias aut accusantium
-            adipisci est ab temporibus quibusdam culpa tempore corporis quaerat
-            quod magnam commodi consectetur id laudantium obcaecati repudiandae
-            nisi eum aperiam, reprehenderit ad asperiores eos eligendi?
-            Provident.
-          </p>
+          <div className="about-3-left-content">
+            <h2 className="about-section-3-h2">We Take Pride In Our Care</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
+              officia doloremque, perspiciatis eligendi provident hic quaerat
+              aspernatur rerum cumque qui porro, tempora harum ducimus error ad
+              nisi eum aperiam, reprehenderit ad asperiores eos eligendi?
+              Provident.
+            </p>
+          <div className="about-3-right-content">
+            {/* <img src="./images/medical_professional_arms_crossed.jpg" alt="male nurse arms crossed" className="about-3-image" /> */}
+          </div>
+          </div>
         </div>
       </div>
+
+      {/* <div className="about-partners-section">
+        <h1 className="about-partners-h1">OUR PARTNERS</h1>
+        <div className="about-partners-logo-container">
+          <img
+            src=""
+            alt="some partners of future trans systems"
+            className="about-partners-img"
+          />
+          <img
+            src=""
+            alt="some partners of future trans systems"
+            className="about-partners-img"
+          />
+          <img
+            src=""
+            alt="some partners of future trans systems"
+            className="about-partners-img"
+          />
+          <img
+            src=""
+            alt="some partners of future trans systems"
+            className="about-partners-img"
+          />
+          <img
+            src=""
+            alt="some partners of future trans systems"
+            className="about-partners-img"
+          />
+        </div>
+      </div> */}
+
       <div className="about-section-bottom-banner">
         <div className="about-section-bottom-banner-overlay">
           <div className="about-bottom-banner-text">
             <h1>WE WANT TO CARE FOR YOU</h1>
-            <div className="heading-underline" style={{ width: "200px" }}></div>
-            <h2>LET US DRIVE YOU TO YOUR NEXT APPOINTMENT</h2>
+            <div
+              className="heading-underline"
+              style={{ width: "200px", borderTop: "2px solid white" }}
+            ></div>
+            <h2 style={{ color: "white" }}>
+              LET US DRIVE YOU TO YOUR NEXT APPOINTMENT
+            </h2>
           </div>
           <button className="about-request-a-ride-btn">
             REQUEST A RIDE{" "}

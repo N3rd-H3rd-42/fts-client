@@ -3,10 +3,10 @@
 #home-hero {
   width: 100%;
   height: 50vh;
-  background-image: url('../../public/images/emergencyoffice.jpg');
+  background-image: url('../../public/images/arizona.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: left;
   position: relative;
 }
 
@@ -145,7 +145,7 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   color: white;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 .request-a-ride-form-container {
@@ -206,8 +206,9 @@ h2 {
 #drive-with-fts {
   width: 100%;
   height: auto;
-  background-image: url('../../public/images/medoc.png');
-  background-position: center;
+  background-image: url('../../public/images/nurse_pink_bg.jpg');
+  background-position: top;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -302,11 +303,26 @@ h3 {
 }
 
 .home-image-break {
-  height: 50vh;
+  height: 40vh;
   width: 100%;
-  background-image: url('../../public/images/medical_clinic.jpg');
-  background-position: bottom;
+  background-image: url('../../public/images/driver_backseat.jpg');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 50px;
+  position: relative;
+}
+
+.home-image-break-overlay {
+  position: absolute;
+  height: 40vh;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.363);
+  float: right;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }

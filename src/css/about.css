@@ -51,33 +51,40 @@
 }
 
 .about-section-3 {
-  background-color: red;
-  height: 40vh;
-  width: 40vw;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 100px;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.about-section-3 p,
-h2 {
-  width: 50%!important;
+.about-3-left-content {
+  background-color: red;
+  padding: 50px;
+}
+
+.about-3-right-content {
+  float: right;
+}
+
+.about-section-3-h2 {
+  font-size: 3em;
+}
+
+.about-section-3 p {
+  font-size: 1.5em;
 }
 
 .heading-underline {
   height: 3px;
   width: 100px;
-  border-top: 5px solid rgb(255, 255, 255);
+  border-top: 2px solid rgb(255, 255, 255);
 }
 
 .about-section-bottom-banner {
-  background-image: url('../../public/images/medical_clinic.jpg');
+  background-image: url('../../public/images/helping_hands.jpg');
   width: 100%;
-  min-height: 20vh;
+  min-height: 30vh;
   position: relative;
   background-position: center;
   background-size: cover;
@@ -90,7 +97,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(61, 61, 61, 0.541);
+  background-color: rgba(105, 35, 35, 0.541);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -111,9 +118,20 @@ h2 {
   background-color: transparent;
   color: red;
   padding: 10px;
+  font-size: 26px;
 }
 
 .about-request-a-ride-btn:hover {
-  color: rgb(179, 1, 1);
+  color: rgb(255, 255, 255);
   transition: 250ms ease-in-out;
+}
+
+.about-partners-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 100px 0px 100px 0px;
 }

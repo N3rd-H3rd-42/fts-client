@@ -6,6 +6,11 @@ const Apply = () => {
   return (
     <div className="apply-container">
      <PageHeading>APPLY</PageHeading>
+     <div className="apply-page-banner">
+       <h1 className="apply-banner-h1">Drive With Future Trans Systems</h1>
+       <div className="heading-underline"></div>
+       <p className="apply-banner-p">Future Trans Systems is looking for drivers like you!</p>
+     </div>
 
       <div className="apply-title">
         <h3>Why Drive with FTS?</h3>

@@ -1,5 +1,4 @@
 .contact-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -7,38 +6,95 @@
   padding-bottom: 25px;
 }
 
-.application-form-container {
+.contact-form {
+  min-width: 60%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 40vh;
-  width: 50%;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 60px;
 }
 
-.application-form input {
-  padding: 25px;
+.contact-form-label {
+  font-size: 22px;
+  padding: 10px 0px 5px 3px;
 }
 
-.application-form-label {
-  width: 50%;
-  padding: 25px 0 10px 0;
+.contact-form-input {
+  height: 50px;
+  border-radius: 10px;
+  border: 3px solid rgb(226, 226, 226);
 }
 
-.fts-map-location {
-  height: auto;
-  width: 50%;
+.contact-form-text-input {
+  height: 250px;
+  border-radius: 10px;
+  border: 3px solid rgb(226, 226, 226);
 }
 
 .contact-content-container {
   display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.contact-form-left-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-right-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-submit-button {
+  height: 50px;
+  border-radius: 10px;
+  margin: 20px 0px 75px 0px;
+  background-color: red;
+}
+
+.contact-form-submit-button:hover {
+  background-color: rgb(255, 111, 111);
+}
+
+.contact-page-banner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: red;
+  color: white;
+  padding: 25px;
+  min-height: 15vh;
+}
+
+.contact-page-banner-text {
+  font-size: 1.5em;
+  text-align: center;
+  width: 80%;
+}
+
+.contact-content-container {
+  width: 70%;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+}
+
+.fts-map-location {
+  height: auto;
+  max-width: 50%;
+  min-width: 400px;
 }
 
 .location-info-container {
   display: flex;
-  justify-content: space-evenly;
-
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1em;
+  padding: 80px 0px 80px 0px;
 }
