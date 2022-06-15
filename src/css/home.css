@@ -16,6 +16,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  text-align: center;
   color: white;
 }
 
@@ -28,7 +29,6 @@
 }
 
 .hero-heading {
-  position: relative;
   font-size: 60px;
 }
 
@@ -41,11 +41,14 @@
   height: 50px;
   width: 200px;
   position: relative;
-  padding: 15px;
+  padding: 12px;
   border-radius: 5px;
   background-color: rgb(211, 42, 42);
   border: 2px solid rgba(128, 128, 128, 0.753);
   color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.25em;
 }
 
 .image-overlay {

@@ -91,7 +91,8 @@ const Apply = () => {
       <div className="application-section-container">
         <form action="" className="application-form">
           <div className="application-general-information-container">
-            
+            <h2>Personal Information</h2>
+
             <label htmlFor="first-name">
               First Name
               <input
@@ -141,6 +142,13 @@ const Apply = () => {
           </div>
 
           <div className="application-upload-files-container">
+            <h2>Upload Documents</h2>
+            <p>
+              Some documents are not required upon submitting application
+              however, all items listed below will be required in order to
+              obtain employment. Future Trans Systems may assist in obtaining
+              the required documents and completing additional requirements.
+            </p>
             <label className="application-form-label" for="name">
               Drivers License (required)
               <input
@@ -226,6 +234,12 @@ const Apply = () => {
 
           <div className="application-final-req-container">
             <div className="dui-check-box">
+              <h2>Background Information</h2>
+              <p>
+                The information below may not prevent you from working with
+                Future Trans Systems however, some medical providers require
+                specific provisions.
+              </p>
               <label className="application-form-label" for="name">
                 Have you received a DUI or other drug related offense within the
                 past 7 years? (required)

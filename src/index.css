@@ -63,6 +63,10 @@ button {
   width: 300px;
 }
 
+#hamburger-menu {
+  display: none;
+}
+
 /* mobile nav */
 .mobile-nav-toggle {
   color: #fff;
@@ -183,6 +187,12 @@ button {
   }
   #sub-footer {
     padding-top: 15px;
+  }
+  #navbar {
+    display: none;
+  }
+  #hamburger-menu {
+    display: block;
   }
 }
 
