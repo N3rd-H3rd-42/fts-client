@@ -1,16 +1,50 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import PageHeading from "../components/pages/pageHeading";
 import "../css/apply.css";
 
 const Apply = () => {
+  const [name, setName] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [radioSelected, setRadioSelected] = useState(null);
+  const fileInput = useRef(null);
+
+  const onValueChange = (e) => {
+    setRadioSelected({
+      selectedOption: e.target.value,
+    });
+  };
+
+  const handleFileUpload = (e) => {
+    // handle validations
+    const file = e.target.files[0];
+    // if (file.size > 1024)
+    //   onFileSelectError({ error: "File size cannot exceed more than 1MB" });
+    // else onFileSelectSuccess(file);
+  };
+
+  const submitForm = () => {
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("file", selectedFile);
+
+    // axios
+    //   .post(UPLOAD_URL, formData)
+    //   .then((res) => {
+    //     alert("File Upload success");
+    //   })
+    //   .catch((err) => alert("File Upload Error"));
+  };
+
   return (
     <div className="apply-container">
-     <PageHeading>APPLY</PageHeading>
-     <div className="apply-page-banner">
-       <h1 className="apply-banner-h1">Drive With Future Trans Systems</h1>
-       <div className="heading-underline"></div>
-       <p className="apply-banner-p">Future Trans Systems is looking for drivers like you!</p>
-     </div>
+      <PageHeading>APPLY</PageHeading>
+      <div className="apply-page-banner">
+        <h1 className="apply-banner-h1">Drive With Future Trans Systems</h1>
+        <div className="heading-underline"></div>
+        <p className="apply-banner-p">
+          Future Trans Systems is looking for drivers like you!
+        </p>
+      </div>
 
       <div className="apply-title">
         <h3>Why Drive with FTS?</h3>
@@ -43,7 +77,9 @@ const Apply = () => {
 
         <ul className="how-to-apply-list">
           <li className="how-to-apply-item">Complete the form below</li>
-          <li className="how-to-apply-item">Must upload all official documents</li>
+          <li className="how-to-apply-item">
+            Must upload all official documents
+          </li>
           <li className="how-to-apply-item">Contact us at support@fts.com</li>
           <li className="how-to-apply-item">
             All applicants must have valid drivers license and form of
@@ -54,60 +90,165 @@ const Apply = () => {
 
       <div className="application-section-container">
         <form action="" className="application-form">
-          <label className="application-form-label" for="name">
-            Drivers License
-          </label>
-          <input type="file" />
-          <label className="application-form-label" for="name">
-            Drug Screening
-          </label>
-          <input type="file" />
-          <label className="application-form-label" for="name">
-            First Aide / CPR Certification
-          </label>
-          <input type="file" />
-          <label className="application-form-label" for="name">
-            HIPPA Certification
-          </label>
-          <input type="file" />
-          <label className="application-form-label" for="name">
-            Completed DOT Exam
-          </label>
-          <input type="file" />
-          <label className="application-form-label" for="name">
-            Fingerprint Clearence Card
-          </label>
-          <input type="text" />
-          <label className="application-form-label" for="name">
-            Defensive Driving Course Certification
-          </label>
-          <input type="text" />
-          <label className="application-form-label" for="name">
-            State and NNJ Background Check
-          </label>
-          <input type="text" />
-          <label className="application-form-label" for="name">
-            39 Month Clean MVR
-          </label>
-          <input type="text" />
-          <div className="dui-check-box">
-            <label className="application-form-label" for="name">
-              Have you received a DUI or other drug related offense within the
-              past 7 years?
+          <div className="application-general-information-container">
+            
+            <label htmlFor="first-name">
+              First Name
+              <input
+                placeholder="Enter your first name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </label>
-            <br />
-            <div style={{ marginBottom: "35px" }}></div>
-            Yes <input type="radio" />
-            No <input type="radio" />
-          </div>
-          <button className="apply-button">SUBMIT APPLICATION</button>
-        </form>
 
+            <label htmlFor="first-name">
+              Last Name
+              <input
+                placeholder="Enter your last name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="birthdate">
+              Birthdate
+              <input
+                type="date"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="birthdate">
+              Phone Number
+              <input
+                type="date"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+
+            <label htmlFor="birthdate">
+              Email Address
+              <input
+                type="date"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </label>
+          </div>
+
+          <div className="application-upload-files-container">
+            <label className="application-form-label" for="name">
+              Drivers License (required)
+              <input
+                type="file"
+                required="true"
+                value={selectedFile}
+                onChange={(e) => setSelectedFile(e.target.files[0])}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              Drug Screening (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              First Aide / CPR Certification (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              HIPPA Certification (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              Completed DOT Exam (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              Fingerprint Clearence Card (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              Defensive Driving Course Certification (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              State and NNJ Background Check (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+
+            <label className="application-form-label" for="name">
+              39 Month Clean MVR (optional)
+              <input
+                type="file"
+                onChange={handleFileUpload}
+                value={selectedFile}
+              />
+            </label>
+          </div>
+
+          <div className="application-final-req-container">
+            <div className="dui-check-box">
+              <label className="application-form-label" for="name">
+                Have you received a DUI or other drug related offense within the
+                past 7 years? (required)
+              </label>
+              <br />
+
+              <div onChange={onValueChange}>
+                <input type="radio" value="yes" name="yes" /> Yes
+                <input type="radio" value="no" name="no" /> No
+              </div>
+            </div>
+          </div>
+
+          <button className="apply-button" onClick={(e) => submitForm}>
+            SUBMIT APPLICATION
+          </button>
+        </form>
+        {/* 
         <img
           className="form-container-side-image"
           src="images/fts-logo.jpeg"
           alt="doctor"
-        />
+        /> */}
       </div>
     </div>
   );

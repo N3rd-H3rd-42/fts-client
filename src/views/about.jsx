@@ -9,7 +9,7 @@ const About = () => {
       <div className="about-section-1">
         <h1>It's What We Do.</h1>
         <div className="heading-underline"></div>
-        <p>
+        <p className="about-section-1-p">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos totam
           rerum ab, sit voluptatem ea, nobis vitae deleniti aliquid quasi
           suscipit accusantium esse, omnis nemo voluptatum. Velit quisquam atque
@@ -48,10 +48,12 @@ const About = () => {
               nisi eum aperiam, reprehenderit ad asperiores eos eligendi?
               Provident.
             </p>
-          <div className="about-3-right-content">
-            {/* <img src="./images/medical_professional_arms_crossed.jpg" alt="male nurse arms crossed" className="about-3-image" /> */}
           </div>
-          </div>
+          <img
+            src="./images/medical_professional_arms_crossed.jpg"
+            alt="male nurse arms crossed"
+            className="about-3-image"
+          />
         </div>
       </div>
 
