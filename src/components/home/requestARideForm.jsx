@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { requestRideAction } from "../../Redux/actions/requestRideActions";
-import { sanitize } from '../../utils/sanitize';
+import { sanitize } from "../../utils/sanitize";
 
 const RequestARideForm = () => {
   const [formData, setFormData] = useState({
@@ -55,6 +55,7 @@ const RequestARideForm = () => {
             value={formData.clientName}
             onChange={handleChange}
           />
+
           <input
             type="text"
             name="clientEmail"

@@ -27,7 +27,9 @@ const Modal = forwardRef((props, ref) => {
       <div className="modal-wrapper">
         <div onClick={() => props.close()} className="modal-backdrop" />
         <div className="modal-box">
-          <button className="modalCloseBtn" onClick={() => props.close()}>CANCEL</button>
+          <button className="modalCloseBtn" onClick={() => props.close()}>
+            CANCEL
+          </button>
           {props.children}
         </div>
       </div>,
