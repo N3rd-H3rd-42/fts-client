@@ -33,6 +33,7 @@ function App() {
             <Route exact path="/apply" element={<Apply />} />
             <Route exact path="/login" element={<LoginView />} />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
             {/* <ProtectedRoute exact path="/dashboard" component={<Dashboard />} /> */}
             <Route path="*" element={<NOT_FOUND_404 />} />
           </Routes>
