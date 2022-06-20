@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import PageHeading from "../components/pages/pageHeading";
 import "../css/contact.css";
 
 const Contact = () => {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(values, "values");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = values;
+    // call api and ship values
+    console.log(data, "data");
+  };
+
   return (
     <div className="contact-container">
       <PageHeading>CONTACT US</PageHeading>
@@ -17,29 +36,58 @@ const Contact = () => {
         {/* <p>WE'D LOVE TO HEAR FROM YOU</p> */}
       </div>
 
-      <form action="post" className="contact-form">
-
+      <form
+        action="post"
+        className="contact-form"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <div className="contact-form-left-container">
-          <label className="contact-form-label" for="name">
+          <label className="contact-form-label" htmlFor="name">
             Your Name (required)
           </label>
-          <input className="contact-form-input" type="text" />
-          <label className="contact-form-label" for="name">
-            Your Email (required)
-          </label>
-          <input className="contact-form-input" type="text" />
-          <label className="contact-form-label" for="name">
+          <input
+            className="contact-form-input"
+            name="name"
+            type="text"
+            placeholder="enter your name"
+            onChange={onChange}
+          />
+          <label className="contact-form-label">Your Email (required)</label>
+          <input
+            className="contact-form-input"
+            name="email"
+            type="email"
+            placeholder="enter your email"
+            onChange={onChange}
+          />
+          <label className="contact-form-label" htmlFor="name">
             Phone Number (required)
           </label>
-          <input className="contact-form-input" type="text" />
+          <input
+            className="contact-form-input"
+            name="phone"
+            type="phone"
+            placeholder="enter your phone number"
+            onChange={onChange}
+          />
         </div>
 
         <div className="contact-form-right-container">
-          <label className="contact-form-label" for="name">
+          <label className="contact-form-label" htmlFor="name">
             Your Message
           </label>
-          <input className="contact-form-text-input" type="textbox" />
-          <button className="contact-form-submit-button" type="submit">
+          <input
+            className="contact-form-text-input"
+            name="message"
+            type="text"
+            placeholder="enter a message"
+            onChange={onChange}
+          />
+          <button
+            className="contact-form-submit-button"
+            type="submit"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             SEND
           </button>
         </div>

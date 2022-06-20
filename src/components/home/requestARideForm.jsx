@@ -1,35 +1,27 @@
 import React, { useState } from "react";
-// import { requestRideAction } from "../../Redux/actions/requestRideActions";
-import { sanitize } from "../../utils/sanitize";
 
 const RequestARideForm = () => {
-  const [formData, setFormData] = useState({
-    clientName: "",
-    clientEmail: "",
-    clientPhoneNumber: "",
+  const [values, setValues] = useState({
+    requesterType: "",
+    name: "",
+    phone: "",
+    accchs: "",
+    pickup: "",
+    destination: "",
+    date: "",
+    time: "",
   });
 
-  const [msg, setMsg] = useState(null);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(values, "values");
   };
 
-  const handleSubmit = async (e, formData) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let res = await sanitize(formData);
-    console.log(res);
-    if (res) {
-      // dispatch(reguestRideAction(formData));
-      setMsg({
-        text: "Thank you for registering, please login.",
-        type: "success",
-      });
-    }
+    const data = values;
+    // call api and ship values
+    console.log(data, "data");
   };
 
   return (
@@ -47,36 +39,93 @@ const RequestARideForm = () => {
           Simply complete this form and we will be in touch with you to confirm
           your travel plans.
         </h3>
-        <form id="ride-form">
-          <input
-            type="text"
-            name="clientName"
-            placeholder="enter your full name"
-            value={formData.clientName}
-            onChange={handleChange}
-          />
+        <form id="ride-form" onSubmit={(e) => handleSubmit(e)}>
 
-          <input
-            type="text"
-            name="clientEmail"
-            placeholder="enter your email address"
-            value={formData.clientEmail}
-            onChange={handleChange}
-          />
-          <input
-            className="ride-message-box"
-            type="text"
-            name="clientPhoneNumber"
-            placeholder="enter your phone number"
-            value={formData.clientPhoneNumber}
-            onChange={handleChange}
-          />
+          <div className="ride-form-left-inputs">
+          <h3 className="ride-form-radio-h3">Who is requesting the ride?</h3>
+            <div className="ride-form-radio-container">
+
+              <div className="ride-form-radio-option-container">
+                <label className="ride-form-label" htmlFor="">Medical Facility</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value="facility"
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="ride-form-radio-option-container">
+                <label className="ride-form-label" htmlFor="">Case Manager</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value={"case-manager"}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="ride-form-radio-option-container">
+                <label className="ride-form-label" htmlFor="">Patient</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value={"patient"}
+                  onChange={onChange}
+                />
+              </div>
+
+            </div>
+
+            <input
+            className="ride-form-input"
+              name="name"
+              type="text"
+              placeholder="enter your name"
+              onChange={onChange}
+            />
+            <input
+            className="ride-form-input"
+              name="phone"
+              type="text"
+              placeholder="enter your phone number"
+              onChange={onChange}
+            />
+            <input
+            className="ride-form-input"
+              name="accchs"
+              type="text"
+              placeholder="persons ACCCHS ID"
+              onChange={onChange}
+            />
+          </div>
+
+          <div className="ride-form-right-inputs">
+            <input
+            className="ride-form-input"
+              name="pickup"
+              type="address"
+              placeholder="enter pickup location"
+              onChange={onChange}
+            />
+            <input
+            className="ride-form-input"
+              name="destination"
+              type="address"
+              placeholder="enter destination"
+              onChange={onChange}
+            />
+            <input className="ride-form-input" name="date" type="date" onChange={onChange} />
+            <input className="ride-form-input" name="time" type="time" onChange={onChange} />
+
+          </div>
+
           <button
-            className="request-a-ride-button"
+            className="ride-request-button"
             type="submit"
-            onClick={(e) => handleSubmit(e, formData)}
+            onSubmit={(e) => handleSubmit(e)}
           >
-            Send Request
+            CONFIRM REQUEST
           </button>
         </form>
       </div>

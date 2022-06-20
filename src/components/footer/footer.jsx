@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./footer.css";
 
 const Footer = () => {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(values, "values");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = values;
+    // call api and ship values
+    console.log(data, "data");
+  };
+
   return (
     <div id="footer">
       <div className="footer-fts-location">
@@ -36,17 +55,40 @@ const Footer = () => {
           ></i>
           CONTACT US
         </h2>
-        <input type="text" name="name" placeholder="Enter your name" />
-        <input type="text" name="email" placeholder="Enter your email" />
-        <input
-          className="contact-message-box"
-          type="text"
-          name="message"
-          placeholder="Enter a message"
-        />
-        <button className="footer-contact-form-button" type="submit">
-          SEND
-        </button>
+        <form onSubmit={(e) => handleSubmit(e)} style={{width: '50%'}}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            onChange={onChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            onChange={onChange}
+          />
+          <input
+            name="phone"
+            type="phone"
+            placeholder="enter your phone number"
+            onChange={onChange}
+          />
+          <input
+            className="contact-message-box"
+            type="text"
+            name="message"
+            placeholder="Enter a message"
+            onChange={onChange}
+          />
+          <button
+            className="footer-contact-form-button"
+            type="submit"
+            onSubmit={(e) => handleSubmit(e)}
+          >
+            SEND
+          </button>
+        </form>
       </div>
     </div>
   );

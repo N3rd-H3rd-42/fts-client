@@ -92,7 +92,7 @@ const NavBar = () => {
               <input
                 type="radio"
                 name="requesterType"
-                value={values.requesterType}
+                value={'case-manager'}
                 onChange={onChange}
               />
             </div>
@@ -101,7 +101,7 @@ const NavBar = () => {
               <input
                 type="radio"
                 name="requesterType"
-                value={values.requesterType}
+                value={'patient'}
                 onChange={onChange}
               />
             </div>
@@ -141,7 +141,7 @@ const NavBar = () => {
           <button
             className="modalSubmitBtn"
             type="submit"
-            onSubmit={(e) => console.log("clocked")}
+            onSubmit={(e) => handleSubmit(e)}
           >
             CONFIRM REQUEST
           </button>
