@@ -3,36 +3,59 @@ import PageHeading from "../components/pages/pageHeading";
 import "../css/apply.css";
 
 const Apply = () => {
-  const [name, setName] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [radioSelected, setRadioSelected] = useState(null);
-  const fileInput = useRef(null);
+  const [values, setValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    birthdate: "",
+    license: "",
+    drugScreening: "",
+    cpr: "",
+    dot: "",
+    hippa: "",
+    mvr: "",
+    fingerPrintClearence: "",
+    defensiveDrivingCourse: "",
+    stateAndNnjBackground: "",
+    dui: "",
+  });
 
-  const onValueChange = (e) => {
-    setRadioSelected({
-      selectedOption: e.target.value,
-    });
+  const onChange = (e) => {
+    if(e.target.files){
+      let valueName = e.target.name;
+      let files = e.target.files;
+      let reader = new FileReader();
+  
+      reader.readAsDataURL(files[0]);
+      reader.onload = (e) => {
+        // data lives in e.target.result
+        // setValues hook here
+        setValues({ ...values, [valueName]: e.target.result });
+      };
+
+    } else {
+      setValues({ ...values, [e.target.name]: e.target.value });
+    }
+    console.log(values, "values");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = values;
+    // call api and ship values
+    console.log(data, "data");
   };
 
   const handleFileUpload = (e) => {
-    // handle validations
-    const file = e.target.files[0];
-    // if (file.size > 1024)
-    //   onFileSelectError({ error: "File size cannot exceed more than 1MB" });
-    // else onFileSelectSuccess(file);
-  };
+    let files = e.target.files;
+    let reader = new FileReader();
 
-  const submitForm = () => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("file", selectedFile);
-
-    // axios
-    //   .post(UPLOAD_URL, formData)
-    //   .then((res) => {
-    //     alert("File Upload success");
-    //   })
-    //   .catch((err) => alert("File Upload Error"));
+    reader.readAsDataURL(files[0]);
+    reader.onload = (e) => {
+      // data lives in e.target.result
+      // setValues hook here
+    };
   };
 
   return (
@@ -89,27 +112,33 @@ const Apply = () => {
       </div>
 
       <div className="application-section-container">
-        <form action="" className="application-form">
+        <form
+          action="POST"
+          onSubmit={(e) => handleSubmit(e)}
+          className="application-form"
+        >
           <div className="application-general-information-container">
             <h2>Personal Information</h2>
 
-            <label htmlFor="first-name">
+            <label htmlFor="firstName">
               First Name
               <input
                 placeholder="Enter your first name"
+                name="firstName"
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={onChange}
+                required={true}
               />
             </label>
 
-            <label htmlFor="first-name">
+            <label htmlFor="lastName">
               Last Name
               <input
                 placeholder="Enter your last name"
                 type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="lastName"
+                onChange={onChange}
+                required={true}
               />
             </label>
 
@@ -117,26 +146,32 @@ const Apply = () => {
               Birthdate
               <input
                 type="date"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="birthdate"
+                placeholder="select your birthdate"
+                onChange={onChange}
+                required={true}
               />
             </label>
 
-            <label htmlFor="birthdate">
+            <label htmlFor="phone">
               Phone Number
               <input
-                type="date"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                type="phone"
+                name="phone"
+                placeholder="enter your phone number"
+                onChange={onChange}
+                required={true}
               />
             </label>
 
-            <label htmlFor="birthdate">
+            <label htmlFor="email">
               Email Address
               <input
-                type="date"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                type="email"
+                name="email"
+                placeholder="enter your email"
+                onChange={onChange}
+                required={true}
               />
             </label>
           </div>
@@ -149,85 +184,102 @@ const Apply = () => {
               obtain employment. Future Trans Systems may assist in obtaining
               the required documents and completing additional requirements.
             </p>
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="license">
               Drivers License (required)
               <input
                 type="file"
-                required="true"
-                value={selectedFile}
-                onChange={(e) => setSelectedFile(e.target.files[0])}
+                name="license"
+                onChange={(e) => onChange(e)}
+                required={true}
+                // accept="image/png, image/jpeg"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               Drug Screening (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                name="drugScreening"
+                onChange={(e) => onChange(e)}
+                required={true}
+                // accept="image/png, image/jpeg"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               First Aide / CPR Certification (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                name="cpr"
+                onChange={(e) => onChange(e)}
+                required={true}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               HIPPA Certification (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                name="hippa"
+                onChange={(e) => onChange(e)}
+                required={true}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               Completed DOT Exam (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                onChange={(e) => onChange(e)}
+                required={true}
+                name="dot"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               Fingerprint Clearence Card (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                onChange={(e) => onChange(e)}
+                required={true}
+                name="fingerPrintClearence"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               Defensive Driving Course Certification (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                name="defensiveDrivingCourse"
+                onChange={(e) => onChange(e)}
+                required={true}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               State and NNJ Background Check (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                onChange={(e) => onChange(e)}
+                name="sateAndNnjBackground"
+                required={true}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
 
-            <label className="application-form-label" for="name">
+            <label className="application-form-label" htmlFor="name">
               39 Month Clean MVR (optional)
               <input
                 type="file"
-                onChange={handleFileUpload}
-                value={selectedFile}
+                onChange={(e) => onChange(e)}
+                required={false}
+                name="mvr"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </label>
           </div>
@@ -240,20 +292,32 @@ const Apply = () => {
                 Future Trans Systems however, some medical providers require
                 specific provisions.
               </p>
-              <label className="application-form-label" for="name">
+              <label className="application-form-label" htmlFor="name">
                 Have you received a DUI or other drug related offense within the
                 past 7 years? (required)
               </label>
               <br />
 
-              <div onChange={onValueChange}>
-                <input type="radio" value="yes" name="yes" /> Yes
-                <input type="radio" value="no" name="no" /> No
+              <div onChange={onChange}>
+                <input
+                  type="radio"
+                  value="yes"
+                  name="dui"
+                  onChange={onChange}
+                />{" "}
+                Yes
+                <input
+                  type="radio"
+                  value="no"
+                  name="dui"
+                  onChange={onChange}
+                />{" "}
+                No
               </div>
             </div>
           </div>
 
-          <button className="apply-button" onClick={(e) => submitForm}>
+          <button className="apply-button" onSubmit={(e) => handleSubmit(e)}>
             SUBMIT APPLICATION
           </button>
         </form>
