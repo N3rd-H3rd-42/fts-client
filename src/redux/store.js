@@ -9,9 +9,11 @@ import { rootReducer } from './reducers';
 
 const thunk = thunkMiddleware;
 
+const initialState = {}
+
 const store = createStore(
   rootReducer,
-  {},
+  initialState,
   composeWithDevTools(compose(applyMiddleware(thunk, createLogger())))
 );
 

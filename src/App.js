@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter, Routes, Route
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // Components
 import NavBar from './components/navBar/navBar';
-import { ProtectedRoute } from "./components/auth/ProtectedRoute";
+// import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 
 // Views
 import Home from './views/home';
@@ -20,7 +21,8 @@ import Spinner from './components/spinner/spinner';
 import NOT_FOUND_404 from './views/Error_404_page';
 
 function App() {
-  let [loading, setLoading] = useState(false);
+  const isAuthenitcated = useSelector(({ auth: { isAuthenitcated }}) => isAuthenitcated);
+  let [loading] = useState(false);
 
   return (
     <div className="App">
@@ -33,7 +35,7 @@ function App() {
             <Route exact path="/apply" element={<Apply />} />
             <Route exact path="/login" element={<LoginView />} />
             <Route exact path="/contact" element={<Contact />} />
-            <Route exact path="/dashboard" element={<Dashboard />} />
+            {isAuthenitcated && <Route exact path="/dashboard" element={<Dashboard />} />}
             {/* <ProtectedRoute exact path="/dashboard" component={<Dashboard />} /> */}
             <Route path="*" element={<NOT_FOUND_404 />} />
           </Routes>
