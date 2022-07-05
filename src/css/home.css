@@ -2,7 +2,7 @@
 
 #home-hero {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   background-image: url('../../public/images/arizona.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -14,7 +14,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   color: white;
@@ -26,36 +26,39 @@
   position: relative;
   align-items: center;
   justify-content: center;
+  padding: 25px;
 }
 
 .hero-heading {
-  font-size: 60px;
+  font-size: 3.25em;
 }
 
 .hero-sub-heading {
   position: relative;
-  font-size: 28px;
+  font-size: 1.5em;
 }
 
 .hero-cta-button {
-  height: 50px;
-  width: 200px;
+  margin-top: 75px;
+  display: flex;
+  height: 75px;
+  width: 275px;
   position: relative;
-  padding: 12px;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: rgb(211, 42, 42);
   border: 2px solid rgba(128, 128, 128, 0.753);
   color: white;
   text-decoration: none;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   font-size: 1.25em;
 }
 
 .image-overlay {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.685);
+  background-color: rgba(0, 0, 0, 0.596);
 }
 
 .home-about-section {
@@ -66,8 +69,9 @@
   justify-content: space-evenly;
   align-items: center;
   color: #000000;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   padding: 15px;
+  margin-top: 50px;
 }
 
 .home-about-section h1 {
@@ -75,8 +79,8 @@
   padding: none;
 }
 
-.home-about-section h1 {
-  text-decoration: underline solid red;
+.home-about-section-h1 {
+  font-size: 2.5em;
 }
 
 .home-about-section button {
@@ -209,7 +213,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-
 .ride-form-radio-container {
   display: flex;
   color: white;
@@ -232,15 +235,14 @@ h2 {
 .ride-form-radio-option-container input[type='radio'] {
   border: 0px;
   width: 100%;
-  height: 1.5em!important;
-  box-shadow: none!important;
+  height: 1.5em !important;
+  box-shadow: none !important;
   margin-bottom: 15px;
 }
 
 .ride-form-radio-h3 {
   color: white;
 }
-
 
 .ride-request-button {
   height: 50px;
@@ -336,9 +338,9 @@ h3 {
 }
 
 .home-apply-btn:hover {
-  background-color: rgba(0, 0, 0, 0.315);
-  transition: 3ms ease-in-out;
-  border: 2px solid rgb(41, 41, 41);
+  background-color: rgba(241, 8, 8, 0.5);
+  transition: 250ms ease-in-out;
+  /* border: 2px solid rgb(41, 41, 41); */
 }
 
 .home-apply-btn:active {
@@ -376,4 +378,11 @@ h3 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.home-heading-underline {
+  height: 3px;
+  width: 100px;
+  border-top: 2px solid rgb(255, 0, 0);
 }

@@ -38,6 +38,7 @@ li {
   background-color: red;
   color: white;
   padding: 25px;
+  text-align: center;
 }
 
 .apply-title {
@@ -57,7 +58,7 @@ li {
 }
 
 .application-section-container {
-  width: 80%;
+  width: 100%;
   height: auto;
   display: flex;
 }
@@ -95,9 +96,7 @@ li {
 }
 
 .apply-button:hover {
-  background-color: rgb(219, 20, 20);
-  transition: ease-in-out;
-  border: 5px solid rgba(255, 117, 117, 0.95);
+  background-color: rgba(219, 20, 20, 0.527);
   transition: 250ms ease-in-out;
 }
 
@@ -140,9 +139,26 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
   background-color: rgb(207, 57, 57);
   color: white;
-  padding: 50px;
+  padding: 20px;
   border-radius: 10px;
+}
+
+
+.dui-check-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-item-container {
+  display: flex;
+  min-width: 400px;
+  max-width: 20%;
+  justify-self: space-around;
+  align-items: center;
+}
+
+.input-item-container input {
+  height: 2em;
 }

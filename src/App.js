@@ -18,13 +18,15 @@ import Footer from './components/footer/footer';
 import SubFooter from './components/footer/subFooter';
 import Spinner from './components/spinner/spinner';
 import NOT_FOUND_404 from './views/Error_404_page';
+import NewNavBar from './components/newNavBar/newNavBar';
 
 function App() {
   let [loading, setLoading] = useState(false);
 
   return (
     <div className="App">
-      <NavBar />
+      {/* <NavBar /> */}
+      <NewNavBar />
       {loading ? <Spinner /> : (
         <BrowserRouter>
           <Routes>

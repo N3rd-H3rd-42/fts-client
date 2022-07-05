@@ -22,18 +22,17 @@ const Apply = () => {
   });
 
   const onChange = (e) => {
-    if(e.target.files){
+    if (e.target.files) {
       let valueName = e.target.name;
       let files = e.target.files;
       let reader = new FileReader();
-  
+
       reader.readAsDataURL(files[0]);
       reader.onload = (e) => {
         // data lives in e.target.result
         // setValues hook here
         setValues({ ...values, [valueName]: e.target.result });
       };
-
     } else {
       setValues({ ...values, [e.target.name]: e.target.value });
     }
@@ -62,11 +61,12 @@ const Apply = () => {
     <div className="apply-container">
       <PageHeading>APPLY</PageHeading>
       <div className="apply-page-banner">
-        <h1 className="apply-banner-h1">Drive With Future Trans Systems</h1>
-        <div className="heading-underline"></div>
-        <p className="apply-banner-p">
+        <h1 className="apply-banner-h1">
           Future Trans Systems is looking for drivers like you!
-        </p>
+        </h1>
+        <div className="heading-underline"></div>
+        {/* <p className="apply-banner-p">
+          Future Trans Systems is looking for drivers like you! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, dolor corporis sed inventore.</p> */}
       </div>
 
       <div className="apply-title">
@@ -182,7 +182,9 @@ const Apply = () => {
               Some documents are not required upon submitting application
               however, all items listed below will be required in order to
               obtain employment. Future Trans Systems may assist in obtaining
-              the required documents and completing additional requirements.
+              the required documents and completing additional requirements. To
+              help expadite the process, please upload any documents you may
+              already have available.
             </p>
             <label className="application-form-label" htmlFor="license">
               Drivers License (required)
@@ -285,34 +287,40 @@ const Apply = () => {
           </div>
 
           <div className="application-final-req-container">
+            <h2>Background Information</h2>
+            <p>
+              The information below may not prevent you from working with Future
+              Trans Systems however, some medical providers require specific
+              provisions.
+            </p>
             <div className="dui-check-box">
-              <h2>Background Information</h2>
-              <p>
-                The information below may not prevent you from working with
-                Future Trans Systems however, some medical providers require
-                specific provisions.
-              </p>
               <label className="application-form-label" htmlFor="name">
                 Have you received a DUI or other drug related offense within the
                 past 7 years? (required)
               </label>
+
               <br />
 
               <div onChange={onChange}>
-                <input
-                  type="radio"
-                  value="yes"
-                  name="dui"
-                  onChange={onChange}
-                />{" "}
-                Yes
-                <input
-                  type="radio"
-                  value="no"
-                  name="dui"
-                  onChange={onChange}
-                />{" "}
-                No
+                <div className="input-item-container">
+                  <p>Yes</p>
+                  <input
+                    type="radio"
+                    value="yes"
+                    name="dui"
+                    onChange={onChange}
+                  />{" "}
+                </div>
+                <div className="input-item-container">
+                  <p>No</p>{" "}
+                  <input
+                    type="radio"
+                    value="no"
+                    name="dui"
+                    onChange={onChange}
+                    style={{marginLeft: '12px'}}
+                  />{" "}
+                </div>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ const About = () => {
                 alt="med-doc"
                 style={{ padding: "20px", height: "500px" }}
               />
-              <h2 className="about-top-heading">ABOT FUTURE TRANS SYSTEMS</h2>
+              <h2 className="about-top-heading">ABOUT FUTURE TRANS SYSTEMS</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Nostrum quae ab obcaecati, aut at quasi Lorem ipsum dolor sit
