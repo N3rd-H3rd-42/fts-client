@@ -1,20 +1,19 @@
-import { applyMiddleware, compose, createStore } from 'redux';
-// import { configureStore } from '@reduxjs/toolkit';
-// need to figure out how to above module to accomandate deprecated `createStore` method
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createLogger } from 'redux-logger';
-import thunkMiddleware from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
+import { authReducer } from './reducers/authReducer';
+import thunk from 'redux-thunk';
 
-import { rootReducer } from './reducers';
+const preLoadedState = {};
 
-const thunk = thunkMiddleware;
+const reducer = {
+  auth: authReducer,
+};
 
-const initialState = {}
+const middleware = [thunk];
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  composeWithDevTools(compose(applyMiddleware(thunk, createLogger())))
-);
+const store = configureStore({
+  reducer,
+  preLoadedState,
+  middleware
+});
 
 export default store;
