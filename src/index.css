@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open Sans:wght@300&display=swap');
+
 * {
+  font-family: Open Sans, sans-serif;
   box-sizing: border-box;
 }
 
@@ -48,11 +51,6 @@ button {
   flex-direction: column;
   justify-content: space-between;
   padding: 0 10% 0 10%;
-}
-
-.nav-logo {
-  height: 140px;
-  width: auto;
 }
 
 .nav-phone-number {
@@ -179,12 +177,18 @@ button {
     width: 80%;
   }
   #footer {
-    display: block;
-    padding: 10px;
+    display: block !important;
+    margin-left: 200px;
+    justify-content: center;
+    width: 100%;
   }
   .footer-nav a {
     padding-top: 10px;
   }
+  .footer-contact-form {
+    width: 80%;
+  }
+
   #sub-footer {
     padding-top: 15px;
   }
@@ -193,6 +197,23 @@ button {
   }
   #hamburger-menu {
     display: block;
+  }
+
+  .about-section-3 {
+    display: block;
+  }
+
+  .about-3-left-content {
+    width: 100%;
+  }
+
+  .about-section-3 img {
+    width: 100%;
+  }
+
+  .about-bottom-banner-text {
+    font-size: 0.85em;
+    padding-left: 10%;
   }
 }
 
@@ -204,9 +225,7 @@ button {
   .nav-links-wrapper {
     display: none;
   }
-  .nav-logo {
-    display: none;
-  }
+
   .nav-phone-number {
     display: none;
   }
@@ -223,13 +242,25 @@ button {
     width: 100%;
   }
 
-  .about-3-left-content {
-    max-width: 500px !important;
+  .about-2-list {
+    justify-content: flex-start !important;
+    padding: 0% 5% 0% 15% !important;
+  }
+
+  .about-ul-heading {
+    width: 100%;
+    text-align: flex-start;
+    font-size: 2em !important;
+    padding: 0% 5% 0% 15% !important;
+  }
+
+  .hero-heading {
+    font-size: 3em !important;
   }
 }
 
 @media screen and (max-width: 1220px) {
-  .about-3-left-content {
+  /* .about-3-left-content {
     max-width: 500px !important;
-  }
+  } */
 }

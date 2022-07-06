@@ -23,12 +23,14 @@
   height: 50px;
   border-radius: 10px;
   border: 3px solid rgb(226, 226, 226);
+  padding-left: 10px;
 }
 
 .contact-form-text-input {
   height: 250px;
   border-radius: 10px;
   border: 3px solid rgb(226, 226, 226);
+  padding-left: 10px;
 }
 
 .contact-content-container {

@@ -23,12 +23,14 @@ const Footer = () => {
 
   return (
     <div id="footer">
+
       <div className="footer-fts-location">
         <h3>Future Trans Systems</h3>
         <h3>Phoenix, Arizona</h3>
         <h3>101 N 55th St</h3>
         <h3>Phoenix, AZ 85034</h3>
       </div>
+
       <nav className="footer-nav">
         <a href="/home" className="footer-nav-item">
           HOME
@@ -55,7 +57,7 @@ const Footer = () => {
           ></i>
           CONTACT US
         </h2>
-        <form onSubmit={(e) => handleSubmit(e)} style={{width: '50%'}}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
             name="name"
@@ -90,6 +92,7 @@ const Footer = () => {
           </button>
         </form>
       </div>
+      
     </div>
   );
 };

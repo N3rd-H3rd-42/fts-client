@@ -1,10 +1,9 @@
 import React from "react";
 
 const DriveWithFts = () => {
-
   const handleClick = () => {
-   window.location = '/apply';
-   return
+    window.location = "/apply";
+    return;
   };
 
   return (
@@ -28,7 +27,9 @@ const DriveWithFts = () => {
           quibusdam aut delectus cum aperiam placeat!
         </p>
 
-        <button onClick={handleClick} className="home-apply-btn">APPLY</button>
+        <button onClick={handleClick} className="home-apply-btn">
+          APPLY
+        </button>
       </div>
 
       <div className="bottom-overlay">
