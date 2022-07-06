@@ -1,16 +1,20 @@
-import React, { useState } from "react";
-
-// import { useDispatch } from "react-redux";
-// import { loginAction } from "../../Redux/actions/authActions/authAction";
-import PageHeading from "../pages/pageHeading";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAction } from '../../redux/actions/authActions';
+import PageHeading from '../pages/pageHeading';
 
 const Login = () => {
-  // const dispatch = useDispatch();
-  // const history = useHistory();
+  const dispatch = useDispatch();
+  const history = useNavigate();
+
+  const isAuthenticated = useSelector(
+    ({ auth: { isAuthenticated } }) => isAuthenticated
+  );
 
   const [user, setUser] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: '',
   });
 
   const handleChange = (e) => {
@@ -23,16 +27,22 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await dispatch(loginAction(user));
+
+    dispatch(loginAction(user));
   };
 
   let message = {
-    error: "",
+    error: '',
   };
+
+  useEffect(() => {
+    if (isAuthenticated) history.push('/dashboard');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   return (
     <div className="login-container">
-    <PageHeading>LOGIN</PageHeading>
+      <PageHeading>LOGIN</PageHeading>
       {message.error || message != null ? message.error : null}
       <div className="login-form-container">
         <h1 className="login-heading">Please Enter Your Credentials</h1>
@@ -41,10 +51,10 @@ const Login = () => {
           <label htmlFor="email">Email</label>
           <input
             type="text"
-            id="email"
-            name="email"
-            placeholder="Ener your email"
-            value={user.email}
+            id="username"
+            name="username"
+            placeholder="Ener your username"
+            value={user.username}
             onChange={handleChange}
           />
           <label htmlFor="password">Password</label>
