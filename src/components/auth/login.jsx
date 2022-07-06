@@ -6,11 +6,9 @@ import PageHeading from '../pages/pageHeading';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigation = useNavigate();
 
-  const isAuthenticated = useSelector(
-    ({ auth: { isAuthenticated } }) => isAuthenticated
-  );
+  const isAuthenitcated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
 
   const [user, setUser] = useState({
     username: '',
@@ -36,9 +34,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) history.push('/dashboard');
+    if (isAuthenitcated) navigation('/dashboard', { replace: true })
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated]);
+  }, [isAuthenitcated]);
 
   return (
     <div className="login-container">

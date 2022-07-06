@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import PageHeading from "../components/pages/pageHeading";
 import "../css/apply.css";
 
@@ -46,16 +46,16 @@ const Apply = () => {
     console.log(data, "data");
   };
 
-  const handleFileUpload = (e) => {
-    let files = e.target.files;
-    let reader = new FileReader();
+  // const handleFileUpload = (e) => {
+  //   let files = e.target.files;
+  //   let reader = new FileReader();
 
-    reader.readAsDataURL(files[0]);
-    reader.onload = (e) => {
-      // data lives in e.target.result
-      // setValues hook here
-    };
-  };
+  //   reader.readAsDataURL(files[0]);
+  //   reader.onload = (e) => {
+  //     // data lives in e.target.result
+  //     // setValues hook here
+  //   };
+  // };
 
   return (
     <div className="apply-container">
