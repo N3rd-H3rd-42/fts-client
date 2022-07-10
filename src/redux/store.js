@@ -8,9 +8,7 @@ import thunk from 'redux-thunk';
 
 const rootReducer = {
   auth: authReducer,
-  dash: {
-    patients: patientsReducer,
-  },
+  patients: patientsReducer,
 };
 
 // const middleware = [thunk];

@@ -7,7 +7,7 @@ const Dashboard = () => {
   const isAuthenitcated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
 
   if (!isAuthenitcated) {
-    return <Navigate to={'/dashboard'} replace />
+    return <Navigate to={'/login'} replace />
   } else {
     return <AdminDashboard />;
   }
