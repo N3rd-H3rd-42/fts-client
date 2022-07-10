@@ -5,7 +5,7 @@ import AdminDashboard from "../components/dashboard";
 
 const Dashboard = () => {
   const isAuthenitcated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
-  console.log('.........', isAuthenitcated)
+
   if (!isAuthenitcated) {
     return <Navigate to={'/dashboard'} replace />
   } else {

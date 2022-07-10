@@ -8,7 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
-  const isAuthenitcated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
+  const isAuthenticated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
 
   const [user, setUser] = useState({
     username: '',
@@ -34,9 +34,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isAuthenitcated) navigation('/dashboard', { replace: true })
+    if (isAuthenticated) navigation('/dashboard', { replace: true })
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenitcated]);
+  }, [isAuthenticated]);
 
   return (
     <div className="login-container">
