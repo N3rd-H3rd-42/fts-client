@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import "./newNavBar.css";
 
 const NewNavBar = () => {
   const [clicked, setClicked] = useState(false);
+  // const navigate = useNavigate();
   const items = [
     {
       title: "request a ride",
@@ -35,6 +37,10 @@ const NewNavBar = () => {
       cName: "nav-item",
     },
   ];
+
+  // const handleNavigation = (pathname) => {
+  //   if (pathname) navigate(`${pathname}`, { replace: true })
+  // };
 
   const renderNavItems = () => {
     return items.map((item, index) => {
