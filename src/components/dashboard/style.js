@@ -63,8 +63,8 @@ export const ModalFormBody = styled.div`
 `;
 
 export const ModalFooter = styled.div`
-    text-align: center;
-    margin-top: 36px;
+  text-align: center;
+  margin-top: 36px;
 `;
 
 export const FormGroupRow = styled.div`
@@ -76,4 +76,38 @@ export const InputLabel = styled.span``;
 
 export const InputElement = styled.input`
   width: 100%;
+`;
+
+export const PatientDetailsCard = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const CardHeader = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const CardFooter = styled.div`
+  border: 1px solid pink;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const CardGroupRow = styled.div`
+  border: 1px solid brown;
+  ${({ groupWidth }) => (groupWidth ? `width: ${groupWidth}%;` : '')}
+`;
+
+export const ValueLabel = styled.span`
+  display: block;
+`;
+
+export const ValueText = styled.span`
+  display: block;
+`;
+
+export const StatusBadge = styled.div`
+  background: ${({ isActive }) => (isActive ? 'green' : 'red')};
 `;

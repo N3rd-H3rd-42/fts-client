@@ -4,7 +4,7 @@ import { BACKEND_URL } from '../../constants/config';
 export const FETCH_ALL_PATIENTS = 'FETCH_ALL_PATIENTS';
 export const CREATE_NEW_PATIENT = 'CREATE_NEW_PATIENT';
 
-// const { BACKEND_URL } = process.env;
+// const { REACT_APP_BACKEND_URL } = process.env;
 
 export const getAllPatients = () => async (dispatch) => {
   try {
