@@ -98,6 +98,7 @@ export const CardFooter = styled.div`
 
 export const CardGroupRow = styled.div`
   border: 1px solid brown;
+  padding: 4px;
   ${({ groupWidth }) => (groupWidth ? `width: ${groupWidth}%;` : '')}
 `;
 
