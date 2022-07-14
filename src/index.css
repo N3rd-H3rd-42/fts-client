@@ -177,10 +177,9 @@ button {
     width: 80%;
   }
   #footer {
-    display: block !important;
-    margin-left: 200px;
-    justify-content: center;
-    width: 100%;
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    align-items: center;
   }
   .footer-nav a {
     padding-top: 10px;
@@ -215,6 +214,33 @@ button {
     font-size: 0.85em;
     padding-left: 10%;
   }
+
+  .footer-fts-location {
+    width: 50%;
+  }
+
+  .footer-nav {
+    margin-top: 25px;
+    width: 40% !important;
+  }
+
+  .footer-contact-form {
+    width: 80% !important;
+  }
+  #home-hero {
+    height: 92vh !important;
+  }
+  .image-overlay {
+    height: 92vh !important;
+  }
+
+  .about-list-li {
+    font-size: 0.55em!important;
+    min-width: 320px!important;
+    list-style: none;
+    border: 1px solid gray;
+  }
+  
 }
 
 @media screen and (max-width: 991px) {
@@ -256,6 +282,23 @@ button {
 
   .hero-heading {
     font-size: 3em !important;
+  }
+
+  .application-form {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .second-app-section {
+    margin-top: 25px;
+  }
+
+  .apply-button {
+    width: 80% !important;
+  }
+
+  .ride-req-btn {
+    width: 96vw !important;
   }
 }
 

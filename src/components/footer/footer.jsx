@@ -41,8 +41,11 @@ const Footer = () => {
         <a href="/apply" className="footer-nav-item">
           APPLY
         </a>
-        <a href="/register" className="footer-nav-item">
+        {/* <a href="/register" className="footer-nav-item">
           REGISTER
+        </a> */}
+        <a href="/login" className="footer-nav-item">
+          LOGIN
         </a>
         <a href="/contact" className="footer-nav-item">
           CONTACT

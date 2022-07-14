@@ -76,7 +76,10 @@ const Contact = () => {
           <label className="contact-form-label" htmlFor="name">
             Your Message
           </label>
-          <input
+          <textarea
+            rows="5"
+            cols="30"
+            maxlength="250"
             className="contact-form-text-input"
             name="message"
             type="text"

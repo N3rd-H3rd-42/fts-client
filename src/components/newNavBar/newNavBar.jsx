@@ -1,14 +1,10 @@
 import React, { useState } from "react";
+import Modal from "../reusableComponents/modal/modal";
 import "./newNavBar.css";
 
 const NewNavBar = () => {
   const [clicked, setClicked] = useState(false);
   const items = [
-    {
-      title: "request a ride",
-      url: "/",
-      cName: "nav-item",
-    },
     {
       title: "home",
       url: "/",
@@ -36,6 +32,35 @@ const NewNavBar = () => {
     },
   ];
 
+  const [values, setValues] = useState({
+    requesterType: "",
+    name: "",
+    phone: "",
+    accchs: "",
+    pickup: "",
+    destination: "",
+    date: "",
+    time: "",
+  });
+
+  const [display, setDisplay] = useState(false);
+
+  const close = () => {
+    setDisplay(false);
+  };
+
+  const onChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+    console.log(values, "values");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = values;
+    // call api and ship values
+    console.log(data, "data");
+  };
+
   const renderNavItems = () => {
     return items.map((item, index) => {
       return (
@@ -61,6 +86,90 @@ const NewNavBar = () => {
       </div>
 
       <ul className={clicked ? "nav-list active" : "nav-list"}>
+        <Modal display={display} close={close}>
+          <div className="modalTitleContainer">
+            <h2>Please complete the request form below.</h2>
+          </div>
+
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <h3 className="ride-modal-radio-h3">Who is requesting the ride?</h3>
+            <div className="ride-modal-radio-container">
+              <div class="ride-modal-radio-option-container">
+                <label htmlFor="">Medical Facility</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value="facility"
+                  onChange={onChange}
+                />
+              </div>
+              <div class="ride-modal-radio-option-container">
+                <label htmlFor="">Case Manager</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value={"case-manager"}
+                  onChange={onChange}
+                />
+              </div>
+              <div class="ride-modal-radio-option-container">
+                <label htmlFor="">Patient</label>
+                <input
+                  type="radio"
+                  name="requesterType"
+                  value={"patient"}
+                  onChange={onChange}
+                />
+              </div>
+            </div>
+            <input
+              name="name"
+              type="text"
+              placeholder="enter your name"
+              onChange={onChange}
+            />
+            <input
+              name="phone"
+              type="text"
+              placeholder="enter your phone number"
+              onChange={onChange}
+            />
+            <input
+              name="accchs"
+              type="text"
+              placeholder="persons ACCCHS ID"
+              onChange={onChange}
+            />
+            <input
+              name="pickup"
+              type="address"
+              placeholder="enter pickup location"
+              onChange={onChange}
+            />
+            <input
+              name="destination"
+              type="address"
+              placeholder="enter destination"
+              onChange={onChange}
+            />
+            <input name="date" type="date" onChange={onChange} />
+            <input name="time" type="time" onChange={onChange} />
+            <button
+              className="modalSubmitBtn"
+              type="submit"
+              onSubmit={(e) => handleSubmit(e)}
+            >
+              CONFIRM REQUEST
+            </button>
+          </form>
+        </Modal>
+          <button
+            className="nav-link ride-req-btn"
+            href="/"
+            onClick={() => setDisplay(!display)}
+          >
+            REQUEST A RIDE
+          </button>
         {renderNavItems()}
       </ul>
     </nav>

@@ -34,8 +34,9 @@ const DriveWithFts = () => {
 
       <div className="bottom-overlay">
         <p>
-          Future Trans Systems is a reliable medical transportation service.
-          Ride Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Future Trans Systems puts our employees and customers safety first.
+          That is why we are trusted by more than 130 medical facilities and
+          clinic in Arizona and abroad.
         </p>
         <img
           id="drive-with-fts-img"
