@@ -16,13 +16,6 @@ import {
   BodyRow,
   BodyCell,
   Button,
-  // PatientDetailsCard,
-  // CardGroupRow,
-  // ValueLabel,
-  // ValueText,
-  // CardHeader,
-  // CardFooter,
-  // StatusBadge,
 } from './style';
 
 const NewAdminDashboard = () => {
@@ -30,7 +23,6 @@ const NewAdminDashboard = () => {
 
   const patientsList = useSelector(({ patients: { list } }) => list);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [selectedPatient, setSelectedPatient] = useState({});
 
   // const notifiy = () => {
   //   toast('test');

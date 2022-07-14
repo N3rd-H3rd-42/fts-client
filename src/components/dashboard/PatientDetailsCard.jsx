@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   PatientDetailsCardContainer,
@@ -9,10 +9,16 @@ import {
   ValueText,
   CardFooter,
   Button,
+  InputElement,
 } from './style';
 
 const PatientDetailsCard = () => {
-  const selectedPatient = useSelector(({ patients: { selectedPatient }}) => selectedPatient)
+  const selectedPatient = useSelector(
+    ({ patients: { selectedPatient } }) => selectedPatient
+  );
+  const [editMode, setEditMode] = useState(false);
+
+  const toggleEditMode = () => setEditMode(!editMode);
 
   return (
     <PatientDetailsCardContainer>
@@ -24,51 +30,91 @@ const PatientDetailsCard = () => {
       </CardHeader>
       <CardGroupRow groupWidth={33.3}>
         <ValueLabel>First name:</ValueLabel>
-        <ValueText>{selectedPatient?.firstName}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.firstName}</ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={33.3}>
         <ValueLabel>Last name:</ValueLabel>
-        <ValueText>{selectedPatient?.lastName}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.lastName}</ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={33.4}>
         <ValueLabel>ahcccs id:</ValueLabel>
-        <ValueText>{selectedPatient?.ahcccsId}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.ahcccsId}</ValueText>
+        )}
       </CardGroupRow>
 
       <CardGroupRow groupWidth={100}>
         <ValueLabel>Pickup location name:</ValueLabel>
-        <ValueText>{selectedPatient?.locationName}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.locationName}</ValueText>
+        )}
       </CardGroupRow>
 
       <CardGroupRow groupWidth={50}>
         <ValueLabel>Pickup location address:</ValueLabel>
-        <ValueText>{selectedPatient?.locationAddress1}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.locationAddress1}</ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={50}>
-        <ValueLabel>Pick up city zip:</ValueLabel>
-        <ValueText>{selectedPatient?.city}</ValueText>
+        <ValueLabel>Pick up city:</ValueLabel>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.city}</ValueText>
+        )}
       </CardGroupRow>
 
       <CardGroupRow groupWidth={50}>
         <ValueLabel>Address 2:</ValueLabel>
-        <ValueText>
-          {!selectedPatient?.locationAddress2
-            ? 'N/A'
-            : selectedPatient?.locationAddress2}
-        </ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>
+            {!selectedPatient?.locationAddress2
+              ? 'N/A'
+              : selectedPatient?.locationAddress2}
+          </ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={50}>
         <ValueLabel>Zipcode:</ValueLabel>
-        <ValueText>{selectedPatient?.zipCode}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.zipCode}</ValueText>
+        )}
       </CardGroupRow>
 
       <CardGroupRow groupWidth={50}>
         <ValueLabel>Patient contact number:</ValueLabel>
-        <ValueText>{selectedPatient?.phoneNumber}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.phoneNumber}</ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={50}>
         <ValueLabel>Patients prefered driver:</ValueLabel>
-        <ValueText>{selectedPatient?.prefferedDriver}</ValueText>
+        {editMode ? (
+          <InputElement />
+        ) : (
+          <ValueText>{selectedPatient?.prefferedDriver}</ValueText>
+        )}
       </CardGroupRow>
       <CardGroupRow groupWidth={100}>
         <ValueLabel>Register Date:</ValueLabel>
@@ -76,9 +122,18 @@ const PatientDetailsCard = () => {
       </CardGroupRow>
 
       <CardFooter>
-        <Button>Deactivate</Button>
-        <Button>Edit Patient</Button>
-        <Button>Delete</Button>
+        {editMode ? (
+          <>
+            <Button>Update</Button>
+            <Button onClick={toggleEditMode}>Cancel</Button>
+          </>
+        ) : (
+          <>
+            <Button>Deactivate</Button>
+            <Button onClick={toggleEditMode}>Edit Patient</Button>
+            <Button>Delete</Button>
+          </>
+        )}
       </CardFooter>
     </PatientDetailsCardContainer>
   );
