@@ -66,7 +66,7 @@
 .modal-box input {
   height: 40px;
   width: 90%;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 2px solid rgba(71, 71, 71, 0.356);
   box-shadow: inset;
   padding-left: 10px;
@@ -84,24 +84,28 @@
 .modalSubmitBtn {
   height: 50px;
   width: 50%;
-  border-radius: 10px;
+  border-radius: 4px;
   background-color: red;
   color: white;
   align-self: flex-end;
   margin-right: 30px;
   margin-top: 15px;
+  border: none;
 }
 
 .modalSubmitBtn:hover, .modalCloseBtn:hover {
-  background-color: rgb(255, 144, 144);
-  transition: 250ms ease-in-out;
+  background-color: rgba(211, 6, 6, 0.555);
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
 }
 
 .modalCloseBtn {
-  background-color: red;
   color: white;
-  border-radius: 10px;
-  margin-right: 50px;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgb(211, 6, 6);
+  border-radius: 4px;
+  border: none;
 }
 
 @-webkit-keyframes fadeIn {

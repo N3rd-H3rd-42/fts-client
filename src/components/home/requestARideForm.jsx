@@ -40,13 +40,13 @@ const RequestARideForm = () => {
           your travel plans.
         </h3>
         <form id="ride-form" onSubmit={(e) => handleSubmit(e)}>
-
           <div className="ride-form-left-inputs">
-          <h3 className="ride-form-radio-h3">Who is requesting the ride?</h3>
+            <h3 className="ride-form-radio-h3">Who is requesting the ride?</h3>
             <div className="ride-form-radio-container">
-
               <div className="ride-form-radio-option-container">
-                <label className="ride-form-label" htmlFor="">Medical Facility</label>
+                <label className="ride-form-label" htmlFor="">
+                  Medical Facility
+                </label>
                 <input
                   type="radio"
                   name="requesterType"
@@ -56,7 +56,9 @@ const RequestARideForm = () => {
               </div>
 
               <div className="ride-form-radio-option-container">
-                <label className="ride-form-label" htmlFor="">Case Manager</label>
+                <label className="ride-form-label" htmlFor="">
+                  Case Manager
+                </label>
                 <input
                   type="radio"
                   name="requesterType"
@@ -66,7 +68,9 @@ const RequestARideForm = () => {
               </div>
 
               <div className="ride-form-radio-option-container">
-                <label className="ride-form-label" htmlFor="">Patient</label>
+                <label className="ride-form-label" htmlFor="">
+                  Patient
+                </label>
                 <input
                   type="radio"
                   name="requesterType"
@@ -74,25 +78,24 @@ const RequestARideForm = () => {
                   onChange={onChange}
                 />
               </div>
-
             </div>
 
             <input
-            className="ride-form-input"
+              className="ride-form-input"
               name="name"
               type="text"
               placeholder="enter your name"
               onChange={onChange}
             />
             <input
-            className="ride-form-input"
+              className="ride-form-input"
               name="phone"
               type="text"
               placeholder="enter your phone number"
               onChange={onChange}
             />
             <input
-            className="ride-form-input"
+              className="ride-form-input"
               name="accchs"
               type="text"
               placeholder="persons ACCCHS ID"
@@ -102,22 +105,31 @@ const RequestARideForm = () => {
 
           <div className="ride-form-right-inputs">
             <input
-            className="ride-form-input"
+              className="ride-form-input"
               name="pickup"
               type="address"
               placeholder="enter pickup location"
               onChange={onChange}
             />
             <input
-            className="ride-form-input"
+              className="ride-form-input"
               name="destination"
               type="address"
               placeholder="enter destination"
               onChange={onChange}
             />
-            <input className="ride-form-input" name="date" type="date" onChange={onChange} />
-            <input className="ride-form-input" name="time" type="time" onChange={onChange} />
-
+            <input
+              className="ride-form-input"
+              name="date"
+              type="date"
+              onChange={onChange}
+            />
+            <input
+              className="ride-form-input"
+              name="time"
+              type="time"
+              onChange={onChange}
+            />
           </div>
 
           <button
@@ -140,15 +152,28 @@ const RequestARideForm = () => {
           </i>
           Need to register?
         </h1>
-        <h3>Call 000-000-0000 or email us at clientregistry@fts.com</h3>
-        <h4>
-          This is just some extra content, maybe what they need to register
-        </h4>
-        <h3>What you need</h3>
+        <h3>
+          If you haven't used Future Trans Systems before but would like to,
+          simply complete the ride request form and if you are a new client,
+          we'll get you going swiftly. If you have questions or comments about
+          our services, please email us at clientregistry@fts.com or call us at
+          (480) 410-2359. Let us show you the better way to travel for your
+          medical needs.
+        </h3>
+        <h3>Why use Future Trans Systems?</h3>
         <ul>
-          <li>government issued id</li>
-          <li>insurance card</li>
-          <li>insurance card</li>
+          <li>
+            We've been in business for over 9 years and serve over 130 medical
+            facilities.
+          </li>
+          <li>
+            Your safety and care is our top priority and our drivers make you
+            their priority.
+          </li>
+          <li>
+            We're simply to use! Submit a ride request and you'll arriving no
+            time!
+          </li>
         </ul>
       </div>
     </div>

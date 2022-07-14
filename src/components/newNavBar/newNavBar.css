@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
+  z-index: 99999;
 }
 
 .nav-logo {
@@ -35,6 +36,22 @@
 }
 
 .nav-item:hover {
+  background-color: rgba(211, 6, 6, 0.555);
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+}
+
+.ride-req-btn {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgb(211, 6, 6);
+  border-radius: 4px;
+  border: none;
+  align-self: center!important;
+}
+
+.ride-req-btn:hover {
   background-color: rgba(211, 6, 6, 0.555);
   border-radius: 4px;
   transition: all 250ms ease-in-out;
@@ -110,5 +127,12 @@
   .fa-times {
     color: rgb(0, 0, 0);
     font-size: 2rem;
+  }
+
+  .ride-req-btn {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
   }
 }

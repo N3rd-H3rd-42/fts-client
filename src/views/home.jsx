@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <HomeHero />
-      <HomeAboutSection />
+      {/* <HomeAboutSection /> */}
       <HomeCardSection />
       <ImageBreak />
       <RequestARideForm />

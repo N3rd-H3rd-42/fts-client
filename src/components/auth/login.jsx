@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginAction } from '../../redux/actions/authActions';
-import PageHeading from '../pages/pageHeading';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "../../redux/actions/authActions";
+import PageHeading from "../pages/pageHeading";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,8 @@ const Login = () => {
   const isAuthenticated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
 
   const [user, setUser] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -30,12 +30,12 @@ const Login = () => {
   };
 
   let message = {
-    error: '',
+    error: "",
   };
 
   useEffect(() => {
-    if (isAuthenticated) navigation('/dashboard', { replace: true })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (isAuthenticated) history.push("/dashboard");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   return (
@@ -44,6 +44,8 @@ const Login = () => {
       {message.error || message != null ? message.error : null}
       <div className="login-form-container">
         <h1 className="login-heading">Please Enter Your Credentials</h1>
+          This portal is for Administrator use only. If you have trouble logging
+        <p>
         <form id="login-form" action="/login" method="post">
           <div id="login-overlay"></div>
           <label htmlFor="email">Email</label>

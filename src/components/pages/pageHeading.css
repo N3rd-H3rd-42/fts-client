@@ -1,8 +1,8 @@
 /* style sheet for contact page */
 .overlay {
     position: absolute;
-    background-color: rgba(102, 50, 50, 0.356);
-    height: 30vh;
+    background-color: rgba(121, 53, 53, 0.233);
+    height: 45vh;
     width: 100%;
   }
   
@@ -12,12 +12,13 @@
   }
   
   .heading-container {
-    height: 30vh;
+    height: 45vh;
     width: 100%;
-    background-image: url('../../../public/images/pexels-karolina-grabowska-4386467.jpg');
+    background-image: url('../../../public/images/card_bright_road_2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left;
+    background-clip:padding-box;
+    background-position: left 50% top 65%;
     color: rgb(243, 242, 242);
     font-size: 2.25em;
     text-shadow: 3px 1px 3px rgb(37, 37, 37);

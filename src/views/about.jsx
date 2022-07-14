@@ -10,12 +10,12 @@ const About = () => {
         <h1>It's What We Do.</h1>
         <div className="heading-underline"></div>
         <p className="about-section-1-p">
-          Many transportation companies state that they provide Non-Emergency
-          Medical Transportation (NEMT) services. The truth is, many companies
+          Many transportation companies claim that they provide non-emergency
+          medical transportation (NEMT) services. The truth is, many companies
           attempt to provide NEMT transportation and are often unprepared to
           provide the care and attention your medical transportation needs
-          deserve. At Future Trans Systems, Non-Emergency Medical Transportation
-          isn't just an option, it is ALL that we do. You can be assure that our
+          deserve. At Future Trans Systems, non-emergency medical transportation
+          isn't just an option, it is ALL that we do. You can be assured that our
           drivers and staff are always ready to provide you the right
           transportation at the right time.
         </p>
@@ -49,17 +49,19 @@ const About = () => {
 
         <div className="about-section-3">
           <div className="about-3-left-content">
-            <h2 className="about-section-3-h2">We Take Pride In Our Care</h2>
+            <h2 className="about-section-3-h2">We Take Pride In Our Service</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam
-              officia doloremque, perspiciatis eligendi provident hic quaerat
-              aspernatur rerum cumque qui porro, tempora harum ducimus error ad
-              nisi eum aperiam, reprehenderit ad asperiores eos eligendi?
-              Provident.
+              Our team here at Future Trans Systems knows how important it is
+              that you arrive safely and on time to all of your appointments and
+              We go the extra mile to make that happens. All of our drivers are
+              vetted and trained to assure your travel is a blissful experience
+              and we make it easy to schedule rides to and from your
+              appointments. We also provide non-emergency medical transportation
+              for an array of reasons.
             </p>
           </div>
           <img
-            src="./images/medical_professional_arms_crossed.jpg"
+            src="./images/girl_dirving_1.jpeg"
             alt="male nurse arms crossed"
             className="about-3-image"
           />
@@ -97,11 +99,16 @@ const About = () => {
         </div>
       </div> */}
 
-      <div>
-        {" "}
+      <div className="ul-list-section-container">
+
         <p className="about-ul-heading">
           <strong>Qualified Requests</strong>
         </p>
+        <div
+            className="heading-underline"
+            style={{ borderTop: "3px solid #ff0000", width: "170px" }}
+          ></div>
+
         <ul className="about-2-list">
           <div>
             <li className="about-list-li">Routine doctor visits</li>
@@ -121,6 +128,7 @@ const About = () => {
             </li>
           </div>
         </ul>
+
       </div>
 
       <div className="about-section-bottom-banner">
