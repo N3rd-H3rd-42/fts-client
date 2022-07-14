@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route } from "react-router-dom";
+import { Route, Navigate } from "react-router-dom";
 
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
@@ -21,7 +21,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
           return <Component {...props} />;
         } else {
           return (
-            <div>fail</div>
+            <Navigate to='/login' replace />
           );
         }
       }}

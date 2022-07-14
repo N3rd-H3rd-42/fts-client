@@ -4,6 +4,7 @@ import "./newNavBar.css";
 
 const NewNavBar = () => {
   const [clicked, setClicked] = useState(false);
+  // const navigate = useNavigate();
   const items = [
     {
       title: "home",

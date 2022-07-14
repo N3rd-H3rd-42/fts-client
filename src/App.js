@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import {
   BrowserRouter, Routes, Route
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 // Components
-import NavBar from './components/navBar/navBar';
+// import NavBar from './components/navBar/navBar';
 // import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 
 // Views
@@ -22,7 +22,7 @@ import NOT_FOUND_404 from './views/Error_404_page';
 import NewNavBar from './components/newNavBar/newNavBar';
 
 function App() {
-  const isAuthenitcated = useSelector(({ auth: { isAuthenitcated }}) => isAuthenitcated);
+  // const isAuthenitcated = useSelector(({ auth: { isAuthenitcated }}) => isAuthenitcated);
   let [loading] = useState(false);
 
   return (
@@ -37,7 +37,8 @@ function App() {
             <Route exact path="/apply" element={<Apply />} />
             <Route exact path="/login" element={<LoginView />} />
             <Route exact path="/contact" element={<Contact />} />
-            {isAuthenitcated && <Route exact path="/dashboard" element={<Dashboard />} />}
+            {/* {isAuthenitcated && <Route exact path="/dashboard" element={<Dashboard />} />} */}
+            <Route exact path="/dashboard" element={<Dashboard />} />
             {/* <ProtectedRoute exact path="/dashboard" component={<Dashboard />} /> */}
             <Route path="*" element={<NOT_FOUND_404 />} />
           </Routes>

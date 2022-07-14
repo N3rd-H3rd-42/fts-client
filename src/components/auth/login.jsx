@@ -6,11 +6,9 @@ import PageHeading from "../pages/pageHeading";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigation = useNavigate();
 
-  const isAuthenticated = useSelector(
-    ({ auth: { isAuthenticated } }) => isAuthenticated
-  );
+  const isAuthenticated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
 
   const [user, setUser] = useState({
     username: "",
@@ -46,10 +44,8 @@ const Login = () => {
       {message.error || message != null ? message.error : null}
       <div className="login-form-container">
         <h1 className="login-heading">Please Enter Your Credentials</h1>
-        <p>
           This portal is for Administrator use only. If you have trouble logging
-          in, please contact technical support at (480)-579-8865
-        </p>
+        <p>
         <form id="login-form" action="/login" method="post">
           <div id="login-overlay"></div>
           <label htmlFor="email">Email</label>
