@@ -78,7 +78,7 @@ export const InputElement = styled.input`
   width: 100%;
 `;
 
-export const PatientDetailsCard = styled.div`
+export const PatientDetailsCardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -86,6 +86,7 @@ export const PatientDetailsCard = styled.div`
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
 `;
 
 export const CardFooter = styled.div`
