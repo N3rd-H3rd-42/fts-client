@@ -20,6 +20,7 @@ import SubFooter from './components/footer/subFooter';
 import Spinner from './components/spinner/spinner';
 import NOT_FOUND_404 from './views/Error_404_page';
 import NewNavBar from './components/newNavBar/newNavBar';
+// import { ToastContainer } from 'react-toastify'
 
 function App() {
   // const isAuthenitcated = useSelector(({ auth: { isAuthenitcated }}) => isAuthenitcated);
@@ -29,6 +30,8 @@ function App() {
     <div className="App">
       {/* <NavBar /> */}
       <NewNavBar />
+
+      {/* <ToastContainer position='bottom-right' newestOnTop /> */}
       {loading ? <Spinner /> : (
         <BrowserRouter>
           <Routes>
