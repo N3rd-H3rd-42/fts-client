@@ -233,9 +233,9 @@ const PatientDetailsCard = () => {
           </>
         ) : (
           <>
-            <Button>Deactivate</Button>
+            <Button disabled>Deactivate</Button>
             <Button onClick={toggleEditMode}>Edit Patient</Button>
-            <Button>Delete</Button>
+            <Button disabled>Delete</Button>
           </>
         )}
       </CardFooter>
