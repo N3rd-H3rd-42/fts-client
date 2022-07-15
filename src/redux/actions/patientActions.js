@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { BACKEND_URL } from '../../constants/config';
+// import { BACKEND_URL } from '../../constants/config';
 
 export const FETCH_ALL_PATIENTS = 'FETCH_ALL_PATIENTS';
 export const CREATE_NEW_PATIENT = 'CREATE_NEW_PATIENT';
 export const FETCH_PATIENT_DETAILS = 'FETCH_PATIENT_DETAILS';
 export const UPDATE_PATIENT_DETAILS = 'UPDATE_PATIENT_DETAILS';
 
-// const { REACT_APP_BACKEND_URL } = process.env;
+const { REACT_APP_BACKEND_URL } = process.env;
 
 export const getAllPatients = () => async (dispatch) => {
   try {
-    const response = await axios.get(`${BACKEND_URL}api/patients`);
+    const response = await axios.get(`${REACT_APP_BACKEND_URL}api/patients`);
     if (response.status === 200)
       dispatch({
         type: FETCH_ALL_PATIENTS,
@@ -24,10 +24,10 @@ export const getAllPatients = () => async (dispatch) => {
 
 export const createNewPatient = (body) => async (dispatch) => {
   try {
-    const response = await axios.post(`${BACKEND_URL}api/patient`, body);
+    const response = await axios.post(`${REACT_APP_BACKEND_URL}api/patient`, body);
     if (response.status === 201) {
       dispatch({ type: CREATE_NEW_PATIENT });
-      const updatedListRes = await axios.get(`${BACKEND_URL}api/patients`);
+      const updatedListRes = await axios.get(`${REACT_APP_BACKEND_URL}api/patients`);
       if (updatedListRes.status === 200)
         dispatch({
           type: FETCH_ALL_PATIENTS,
@@ -42,7 +42,7 @@ export const createNewPatient = (body) => async (dispatch) => {
 
 export const getSinglePatientDetails = (patientId) => async (dispatch) => {
   try {
-    const response = await axios.get(`${BACKEND_URL}api/patient/${patientId}`);
+    const response = await axios.get(`${REACT_APP_BACKEND_URL}api/patient/${patientId}`);
     if (response.status === 200)
       dispatch({ type: FETCH_PATIENT_DETAILS, payload: response.data?.data });
   } catch (error) {
@@ -55,7 +55,7 @@ export const updatePatientDetails =
   (patientId, reqBody) => async (dispatch) => {
     try {
       const response = await axios.put(
-        `${BACKEND_URL}api/patient/${patientId}`,
+        `${REACT_APP_BACKEND_URL}api/patient/${patientId}`,
         { ...reqBody }
       );
       if (response.status === 200) {
@@ -63,7 +63,7 @@ export const updatePatientDetails =
           type: UPDATE_PATIENT_DETAILS,
           payload: response.data?.data,
         });
-        const updatedListRes = await axios.get(`${BACKEND_URL}api/patients`);
+        const updatedListRes = await axios.get(`${REACT_APP_BACKEND_URL}api/patients`);
         if (updatedListRes.status === 200)
           dispatch({
             type: FETCH_ALL_PATIENTS,
