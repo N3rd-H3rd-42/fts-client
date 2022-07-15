@@ -6,7 +6,7 @@ import "./modal.css";
 
 const Modal = forwardRef((props, ref) => {
   const [display, setDisplay] = useState(true);
-
+  console.log(display);
   useImperativeHandle(ref, () => {
     return {
       openModal: () => open(),
