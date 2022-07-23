@@ -156,8 +156,7 @@ const RequestARideForm = () => {
           If you haven't used Future Trans Systems before but would like to,
           simply complete the ride request form and if you are a new client,
           we'll get you going swiftly. If you have questions or comments about
-          our services, please email us at clientregistry@fts.com or call us at
-          (480) 410-2359. Let us show you the better way to travel for your
+          our services, please contact us directly. Let us show you the better way to travel for your
           medical needs.
         </h3>
         <h3>Why use Future Trans Systems?</h3>

@@ -8,7 +8,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
-  const isAuthenticated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
+  const isAuthenticated = useSelector(
+    ({ auth: { isAuthenticated } }) => isAuthenticated
+  );
 
   const [user, setUser] = useState({
     username: "",
@@ -34,7 +36,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (isAuthenticated) history.push("/dashboard");
+    // if (isAuthenticated) history.push("/dashboard");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
@@ -44,8 +46,7 @@ const Login = () => {
       {message.error || message != null ? message.error : null}
       <div className="login-form-container">
         <h1 className="login-heading">Please Enter Your Credentials</h1>
-          This portal is for Administrator use only. If you have trouble logging
-        <p>
+        This portal is for Administrator use only. If you have trouble logging
         <form id="login-form" action="/login" method="post">
           <div id="login-overlay"></div>
           <label htmlFor="email">Email</label>
