@@ -8,7 +8,9 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
-  const isAuthenticated = useSelector(({ auth: { isAuthenticated }}) => isAuthenticated);
+  const isAuthenticated = useSelector(
+    ({ auth: { isAuthenticated } }) => isAuthenticated
+  );
 
   const [user, setUser] = useState({
     username: "",

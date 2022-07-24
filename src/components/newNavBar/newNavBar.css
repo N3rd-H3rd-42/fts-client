@@ -57,6 +57,32 @@
   transition: all 250ms ease-in-out;
 }
 
+.ride-modal-radio-option-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.ride-modal-radio-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  color: white;
+  padding: 25px;
+}
+
+.ride-modal-radio-option-container input[type='radio'] {
+  border: 0px;
+  width: 100%;
+  height: 2em;
+}
+
+.ride-modal-radio-h3 {
+  color: white;
+}
+
+
 .fa-bars {
   color: rgb(0, 0, 0);
 }
