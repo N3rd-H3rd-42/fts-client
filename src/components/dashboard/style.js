@@ -5,32 +5,92 @@ export const DashboardContainer = styled.div`
   display: flex;
 `;
 
-export const LeftSideNavWrapper = styled.div`
-  border: 1px solid green;
-  width: 15%;
+export const TopNavWrapper = styled.div`
+display: flex;
+width: 15%;
+margin-bottom: 10px;
+
+
+button {
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+}
 `;
 
 export const MainCenterWrapper = styled.div`
-  border: 1px solid purple;
-  width: 50%;
+  border: 1px solid rgb(226, 226, 226);
+  width: 65%;
 `;
 
 export const RightSideDetailsWrapper = styled.div`
-  border: 1px solid orange;
   width: 35%;
 `;
 
-export const Table = styled.table``;
+export const Table = styled.table`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: flex-start;
+`;
 
-export const TableHead = styled.thead``;
+export const TableHead = styled.thead`
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+`;
 
-export const TableBody = styled.tbody``;
+export const Thead = styled.th`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+`;
 
-export const BodyRow = styled.tr``;
+export const TableBody = styled.tbody`
+width: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: flex-start;
+padding: 10px 0px;
+`;
+
+export const BodyRow = styled.tr`
+width: 100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+border-top: 1px solid rgb(226, 226, 226);
+border-bottom: 1px solid rgb(226, 226, 226);
+padding: 12px;
+
+:hover {
+    background-color: rgb(226, 226, 226);
+    transition: 500ms ease-in-out;
+  }
+`;
 
 export const BodyCell = styled.td``;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: rgb(211, 6, 6);
+  border-radius: 4px;
+  border: none;
+
+
+  :hover {
+  background-color: rgba(211, 6, 6, 0.555);
+  border-radius: 4px;
+  transition: all 250ms ease-in-out;
+  }
+`;
 
 export const NewPatientModalContainer = styled.div`
   position: absolute;
@@ -75,41 +135,74 @@ export const FormGroupRow = styled.div`
 export const InputLabel = styled.span``;
 
 export const InputElement = styled.input`
-  width: 100%;
+  height: 39px;
+  width: 90%;
+  border-radius: 4px;
+  border: 2px solid rgba(71, 71, 71, 0.356);
+  box-shadow: inset;
+  padding-left: 10px;
 `;
 
 export const PatientDetailsCardContainer = styled.div`
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid rgb(226, 226, 226);
 `;
 
 export const CardHeader = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+
+  h3 {
+    width: 80%;
+  }
 `;
 
 export const CardFooter = styled.div`
-  border: 1px solid pink;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: 53%;
+  padding-right: 2%;
 `;
 
 export const CardGroupRow = styled.div`
-  border: 1px solid brown;
-  padding: 4px;
+  border-top: 1px solid rgb(226, 226, 226);
+  border-bottom: 1px solid rgb(226, 226, 226);
+  border-right: 1px solid rgb(226, 226, 226);
+  padding: 10px 0px 0px 10px;
   ${({ groupWidth }) => (groupWidth ? `width: ${groupWidth}%;` : '')}
+
+  :hover {
+    background-color: rgb(226, 226, 226);
+    transition: 500ms ease-in-out;
+  }
 `;
 
 export const ValueLabel = styled.span`
   display: block;
-`;
+  `;
 
 export const ValueText = styled.span`
   display: block;
+  color: blue;
+  margin-top: 5px;
 `;
 
 export const StatusBadge = styled.div`
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   background: ${({ isActive }) => (isActive ? 'green' : 'red')};
+`;
+
+export const StatusMessage = styled.h1`
+color: rgba(211, 6, 6, 0.555);
+align-self: center;
 `;
