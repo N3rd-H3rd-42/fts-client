@@ -37,7 +37,7 @@ const NewPatientModal = ({ isOpen, setIsOpen }) => {
       <ModalContentWrapper>
         <ModalHeader>
           <div>
-            <h3>Add new patient</h3>
+            <h3>Add New Patient</h3>
           </div>
           <div>
             <Button onClick={setIsOpen}>X</Button>
@@ -85,7 +85,7 @@ const NewPatientModal = ({ isOpen, setIsOpen }) => {
             />
           </FormGroupRow>
           <FormGroupRow width={50}>
-            <InputLabel>City</InputLabel>
+            <InputLabel>Pickup city</InputLabel>
             <InputElement type="text" name="city" onChange={onChangeHandler} />
           </FormGroupRow>
           <FormGroupRow width={50}>
@@ -97,7 +97,7 @@ const NewPatientModal = ({ isOpen, setIsOpen }) => {
             />
           </FormGroupRow>
           <FormGroupRow width={50}>
-            <InputLabel>zip code</InputLabel>
+            <InputLabel>Pickup zip code</InputLabel>
             <InputElement
               type="text"
               name="zipCode"

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.div`
   min-height: 50vh;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const TopNavWrapper = styled.div`
@@ -13,6 +15,7 @@ margin-bottom: 10px;
 
 button {
   width: 80%;
+  min-width: 150px;
   margin-top: 5%;
   margin-left: 10%;
 }
@@ -25,6 +28,8 @@ export const MainCenterWrapper = styled.div`
 
 export const RightSideDetailsWrapper = styled.div`
   width: 35%;
+  min-width: 400px;
+  flex-wrap: wrap;
 `;
 
 export const Table = styled.table`
@@ -40,6 +45,11 @@ width: 100%;
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
+
+input {
+  min-width: 220px;
+  margin-right: 15px;
+}
 `;
 
 export const Thead = styled.th`
@@ -56,6 +66,15 @@ flex-direction: column;
 justify-content: space-evenly;
 align-items: flex-start;
 padding: 10px 0px;
+overflow-y: scroll;
+overflow: hidden;
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
 `;
 
 export const BodyRow = styled.tr`
@@ -67,7 +86,7 @@ align-items: center;
 border-top: 1px solid rgb(226, 226, 226);
 border-bottom: 1px solid rgb(226, 226, 226);
 padding: 12px;
-
+flex-wrap: wrap;
 :hover {
     background-color: rgb(226, 226, 226);
     transition: 500ms ease-in-out;
@@ -108,7 +127,7 @@ export const ModalContentWrapper = styled.div`
   background: #fff;
   max-width: 50%;
   min-height: 50%;
-  padding: 18px 8px 50px;
+  padding: 25px 25px 50px 25px;
 `;
 
 export const ModalHeader = styled.div`
@@ -123,6 +142,10 @@ export const ModalFormBody = styled.div`
 `;
 
 export const ModalFooter = styled.div`
+  width: 20%;
+  display: flex;
+  justify-self: flex-end;
+  justify-content: space-around;
   text-align: center;
   margin-top: 36px;
 `;
@@ -149,6 +172,7 @@ export const PatientDetailsCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   border: 1px solid rgb(226, 226, 226);
+  word-wrap: normal;
 `;
 
 export const CardHeader = styled.div`
@@ -157,6 +181,7 @@ export const CardHeader = styled.div`
   width: 100%;
 
   h3 {
+    text-align: center;
     width: 80%;
   }
 `;
@@ -166,8 +191,10 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-left: 53%;
+  flex-wrap: wrap;
+  
+  // @media padding: 0;
+  padding-left: 43%;
   padding-right: 2%;
 `;
 

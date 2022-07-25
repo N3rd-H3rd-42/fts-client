@@ -243,7 +243,7 @@ const PatientDetailsCard = () => {
     </PatientDetailsCardContainer>
   ) : (
     <PatientDetailsCardContainer>
-      <StatusMessage>SELECT PATIENT TO VIEW PATIENT INFORMATION</StatusMessage>
+      <StatusMessage>SELECT PATIENT TO VIEW INFORMATION</StatusMessage>
     </PatientDetailsCardContainer>
   );
 };

@@ -95,7 +95,7 @@ const NewNavBar = () => {
           <form onSubmit={(e) => handleSubmit(e)}>
             <h3 className="ride-modal-radio-h3">Who is requesting the ride?</h3>
             <div className="ride-modal-radio-container">
-              <div class="ride-modal-radio-option-container">
+              <div className="ride-modal-radio-option-container">
                 <label htmlFor="">Medical Facility</label>
                 <input
                   type="radio"
@@ -104,7 +104,7 @@ const NewNavBar = () => {
                   onChange={onChange}
                 />
               </div>
-              <div class="ride-modal-radio-option-container">
+              <div className="ride-modal-radio-option-container">
                 <label htmlFor="">Case Manager</label>
                 <input
                   type="radio"
@@ -113,7 +113,7 @@ const NewNavBar = () => {
                   onChange={onChange}
                 />
               </div>
-              <div class="ride-modal-radio-option-container">
+              <div className="ride-modal-radio-option-container">
                 <label htmlFor="">Patient</label>
                 <input
                   type="radio"

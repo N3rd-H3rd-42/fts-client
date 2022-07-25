@@ -295,15 +295,10 @@ button {
     padding-bottom: 5px;
   }
 
-  .about-2-list {
-    justify-content: flex-start !important;
-  }
-
   .about-ul-heading {
     width: 100%;
-    text-align: flex-start;
+    text-align: center;
     font-size: 2em !important;
-    padding: 0% 5% 0% 15% !important;
   }
 
   .hero-heading {

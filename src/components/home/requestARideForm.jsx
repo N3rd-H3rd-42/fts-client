@@ -174,6 +174,10 @@ const RequestARideForm = () => {
             time!
           </li>
         </ul>
+
+        <div>
+        For questions or comments contact Monica at <h3 className="location-info-h3">monica@fts-nemt.com</h3>
+        </div>
       </div>
     </div>
   );

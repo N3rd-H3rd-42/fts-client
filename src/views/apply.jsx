@@ -59,7 +59,6 @@ const Apply = () => {
 
   return (
     <div className="apply-container">
-
       <PageHeading>APPLY</PageHeading>
       <div className="apply-page-banner">
         <h1 className="apply-banner-h1">
@@ -68,7 +67,6 @@ const Apply = () => {
         <div className="heading-underline"></div>
         {/* <p className="apply-banner-p">
           Future Trans Systems is looking for drivers like you! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, dolor corporis sed inventore.</p> */}
-          
       </div>
 
       <div className="apply-title">
@@ -85,17 +83,17 @@ const Apply = () => {
 
         <h3>Equal Opportunies for All</h3>
         <p>
-          Future Trans Systems is an equal opportunity employer that is committed to
-          diversity and inclusion in the workplace. We prohibit discrimination
-          and harassment of any kind based on race, color, sex, religion, sexual
-          orientation, national origin, disability, genetic information,
-          pregnancy, or any other protected characteristic as outlined by
-          federal, state, or local laws. This policy applies to all employment
-          practices within our organization, including hiring, recruiting,
-          promotion, termination, layoff, recall, leave of absence,
-          compensation, benefits, training, and apprenticeship. Future Trans Systems
-          makes hiring decisions based solely on qualifications, merit, and
-          business needs at the time.
+          Future Trans Systems is an equal opportunity employer that is
+          committed to diversity and inclusion in the workplace. We prohibit
+          discrimination and harassment of any kind based on race, color, sex,
+          religion, sexual orientation, national origin, disability, genetic
+          information, pregnancy, or any other protected characteristic as
+          outlined by federal, state, or local laws. This policy applies to all
+          employment practices within our organization, including hiring,
+          recruiting, promotion, termination, layoff, recall, leave of absence,
+          compensation, benefits, training, and apprenticeship. Future Trans
+          Systems makes hiring decisions based solely on qualifications, merit,
+          and business needs at the time.
         </p>
 
         <h3>Requirements</h3>
@@ -137,6 +135,23 @@ const Apply = () => {
             transportation.
           </li>
         </ul>
+        <div>
+          <div className="credential-links">
+            <h4>
+              The sources below are provided for credentials that can be
+              obtained online.
+            </h4>
+            <a className="credential-link" href="https://www.courseforhipaa.com" rel="noreferrer" target="_blank">
+              HIPAA
+            </a>
+            <a className="credential-link" href="https://www.myimprov.com" rel="noreferrer" target="_blank">
+              Defensive Driving Course
+            </a>
+            <a className="credential-link" href="https://www.nationalcprfoundation.com" rel="noreferrer" target="_blank">
+              First aid and CPR
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="application-section-container">

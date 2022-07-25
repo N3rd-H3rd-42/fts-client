@@ -66,7 +66,7 @@ const NewAdminDashboard = () => {
                 <Thead>PHONE #</Thead>
                 <Thead>
                   <Button onClick={toggleNewPatientModal}>
-                    Add new patient
+                    Add New Patient
                   </Button>
                 </Thead>
                 <Thead>
@@ -86,6 +86,9 @@ const NewAdminDashboard = () => {
                     <BodyCell>{`${firstName} ${lastName}`}</BodyCell>
                     <BodyCell>{ahcccsId}</BodyCell>
                     <BodyCell>{phoneNumber}</BodyCell>
+                    <BodyCell></BodyCell>
+                    <BodyCell></BodyCell>
+                    <BodyCell></BodyCell>
                     <BodyCell>
                       <Button
                         onClick={() => handleSelectPatientDetails(patient._id)}
