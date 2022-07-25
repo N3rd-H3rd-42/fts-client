@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPatients, getSinglePatientDetails } from '../../redux/actions/patientActions';
-import NewPatientModal from './NewPatientModal';
-import PatientDetailsCard from './PatientDetailsCard';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllPatients,
+  getSinglePatientDetails,
+} from "../../redux/actions/patientActions";
+import NewPatientModal from "./NewPatientModal";
+import PatientDetailsCard from "./PatientDetailsCard";
 // import { toast } from 'react-toastify';
 
 import {
   DashboardContainer,
-  LeftSideNavWrapper,
+  TopNavWrapper,
   MainCenterWrapper,
   RightSideDetailsWrapper,
+  InputElement,
   Table,
+  Thead,
   TableHead,
   TableBody,
   BodyRow,
   BodyCell,
   Button,
-} from './style';
+} from "./style";
 
 const NewAdminDashboard = () => {
   const dispatch = useDispatch();
@@ -36,7 +41,7 @@ const NewAdminDashboard = () => {
   };
 
   const handleSelectPatientDetails = (patientId) => {
-    dispatch(getSinglePatientDetails(patientId))
+    dispatch(getSinglePatientDetails(patientId));
   };
 
   useEffect(() => {
@@ -46,21 +51,32 @@ const NewAdminDashboard = () => {
   return (
     <>
       {/* <ToastContainer position='bottom-right' newestOnTop /> */}
+        <TopNavWrapper>
+          <Button onClick={toggleNewPatientModal}>Patients</Button>
+          <Button onClick={toggleNewPatientModal}>Rides</Button>
+        </TopNavWrapper>
       <NewPatientModal isOpen={isModalOpen} setIsOpen={toggleNewPatientModal} />
       <DashboardContainer>
-        <LeftSideNavWrapper>
-          <h1>Coming soon?</h1>
-          <Button onClick={toggleNewPatientModal}>Add new patient</Button>
-        </LeftSideNavWrapper>
         <MainCenterWrapper>
           <Table>
             <TableHead>
-              <tr>
-                <th>name</th>
-                <th>ahcccs id</th>
-                <th>phone #</th>
-                <th></th>
-              </tr>
+              <BodyRow>
+                <Thead>NAME</Thead>
+                <Thead>AHCCCS ID</Thead>
+                <Thead>PHONE #</Thead>
+                <Thead>
+                  <Button onClick={toggleNewPatientModal}>
+                    Add New Patient
+                  </Button>
+                </Thead>
+                <Thead>
+                  <InputElement
+                    type="search"
+                    placeholder="Enter patients name..."
+                  />
+                  <Button>Search</Button>
+                </Thead>
+              </BodyRow>
             </TableHead>
             <TableBody>
               {patientsList.map((patient, index) => {
@@ -70,6 +86,9 @@ const NewAdminDashboard = () => {
                     <BodyCell>{`${firstName} ${lastName}`}</BodyCell>
                     <BodyCell>{ahcccsId}</BodyCell>
                     <BodyCell>{phoneNumber}</BodyCell>
+                    <BodyCell></BodyCell>
+                    <BodyCell></BodyCell>
+                    <BodyCell></BodyCell>
                     <BodyCell>
                       <Button
                         onClick={() => handleSelectPatientDetails(patient._id)}
