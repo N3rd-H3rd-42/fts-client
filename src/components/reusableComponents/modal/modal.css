@@ -61,10 +61,11 @@
   padding-top: 25px;
   padding-bottom: 25px;
   border: 5px solid rgba(56, 56, 56, 0.274);
+  font-size: medium;
 }
 
 .modal-box input {
-  height: 40px;
+  height: 39px;
   width: 90%;
   border-radius: 4px;
   border: 2px solid rgba(71, 71, 71, 0.356);
@@ -75,6 +76,10 @@
 
 .modal-open {
   overflow: hidden;
+}
+
+.modalTitleContainer {
+font-size: smaller;
 }
 
 .modalTitleContainer h2 {

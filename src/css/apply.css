@@ -66,7 +66,7 @@ li {
 
 .how-to-apply-list {
   width: 100%;
-  padding-left: 30px!important;
+  padding-left: 30px !important;
 }
 
 .application-form {
@@ -75,7 +75,7 @@ li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap!important;
+  flex-wrap: wrap !important;
 }
 
 .first-form-app-section {
@@ -178,5 +178,16 @@ li {
 }
 
 .upload-docs-p {
-  font-size: 15.63px!important;
+  font-size: 15.63px !important;
+}
+
+.credential-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: larger;
+}
+
+.credential-link {
+  padding: 5px 0px 25px 0px;
 }

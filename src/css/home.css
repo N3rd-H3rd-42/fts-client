@@ -10,9 +10,10 @@ flex-direction: column;
 justify-content: center; */
 
 #home-hero {
-  width: 100%;
+  width: 100vw;
   display: flex;
-  height: 60vh;
+  height: 70vh;
+  min-height: 70vh;
   background-image: url('../../public/images/car_bright_road.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,6 +23,7 @@ justify-content: center; */
 
 .hero-content {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -73,8 +75,9 @@ justify-content: center; */
 }
 
 .image-overlay {
-  width: 100%;
-  height: 60vh;
+  width: 100vw;
+  height: 70vh;
+  min-height: 70vh;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.418);
 }
@@ -150,8 +153,9 @@ justify-content: center; */
 }
 
 #cards-section p,
-h2 {
+#cards-section h2 {
   color: white;
+  width: 75%;
 }
 
 .card-icon {
@@ -179,6 +183,7 @@ h2 {
   padding: 25px;
   flex-wrap: wrap;
   background-color: rgb(218, 62, 62);
+  min-height: 850px;
 }
 
 .need-to-register {
@@ -191,6 +196,7 @@ h2 {
   padding: 63px;
   border-radius: 10px;
   background-color: rgb(218, 62, 62);
+  min-height: 850px;
 }
 
 #ride-form {

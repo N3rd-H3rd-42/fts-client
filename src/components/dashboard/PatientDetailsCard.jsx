@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updatePatientDetails } from '../../redux/actions/patientActions';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updatePatientDetails } from "../../redux/actions/patientActions";
 import {
   PatientDetailsCardContainer,
   CardHeader,
@@ -11,7 +11,8 @@ import {
   CardFooter,
   Button,
   InputElement,
-} from './style';
+  StatusMessage,
+} from "./style";
 
 const PatientDetailsCard = () => {
   const dispatch = useDispatch();
@@ -45,9 +46,9 @@ const PatientDetailsCard = () => {
   return selectedPatient?._id ? (
     <PatientDetailsCardContainer>
       <CardHeader>
-        <h3>patient details</h3>
+        <h3>PATIENT INFORMATION</h3>
         <StatusBadge isActive={selectedPatient?.isActive}>
-          {selectedPatient?.isActive ? 'Active' : 'Inactive'}
+          {selectedPatient?.isActive ? "ACTIVE" : "INACTIVE"}
         </StatusBadge>
       </CardHeader>
       <CardGroupRow groupWidth={33.3}>
@@ -83,7 +84,7 @@ const PatientDetailsCard = () => {
         )}
       </CardGroupRow>
       <CardGroupRow groupWidth={33.4}>
-        <ValueLabel>ahcccs id:</ValueLabel>
+        <ValueLabel>AHCCS ID:</ValueLabel>
         {editMode ? (
           <InputElement
             name="ahcccsId"
@@ -164,7 +165,7 @@ const PatientDetailsCard = () => {
         ) : (
           <ValueText>
             {!selectedPatient?.locationAddress2
-              ? 'N/A'
+              ? "N/A"
               : selectedPatient?.locationAddress2}
           </ValueText>
         )}
@@ -241,9 +242,9 @@ const PatientDetailsCard = () => {
       </CardFooter>
     </PatientDetailsCardContainer>
   ) : (
-    <div>
-      <h3>Select patient to view details</h3>
-    </div>
+    <PatientDetailsCardContainer>
+      <StatusMessage>SELECT PATIENT TO VIEW INFORMATION</StatusMessage>
+    </PatientDetailsCardContainer>
   );
 };
 

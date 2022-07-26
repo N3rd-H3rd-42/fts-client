@@ -15,8 +15,8 @@ const About = () => {
           attempt to provide NEMT transportation and are often unprepared to
           provide the care and attention your medical transportation needs
           deserve. At Future Trans Systems, non-emergency medical transportation
-          isn't just an option, it is ALL that we do. You can be assured that our
-          drivers and staff are always ready to provide you the right
+          isn't just an option, it is ALL that we do. You can be assured that
+          our drivers and staff are always ready to provide you the right
           transportation at the right time.
         </p>
       </div>
@@ -100,35 +100,73 @@ const About = () => {
       </div> */}
 
       <div className="ul-list-section-container">
-
         <p className="about-ul-heading">
-          <strong>Qualified Requests</strong>
+          <strong>Qualified Transportation Requests</strong>
         </p>
         <div
-            className="heading-underline"
-            style={{ borderTop: "3px solid #ff0000", width: "170px" }}
-          ></div>
+          className="heading-underline"
+          style={{ borderTop: "3px solid #ff0000", width: "170px" }}
+        ></div>
 
         <ul className="about-2-list">
           <div>
-            <li className="about-list-li">Routine doctor visits</li>
-            <li className="about-list-li">Dialysis appointments</li>
-            <li className="about-list-li">Patient discharges</li>
-            <li className="about-list-li">Physical therapy</li>
-          </div>
+            <li className="about-list-li">
+              Emergency Medical Hospitalization &lt; 72 hours
+            </li>
+            <li className="about-list-li">
+              Emergency Admission to Behavioral Health Level 1 Inpatient
+              facility requires AHCCCS notification within 72 hours from
+              admission and concurrent review every 7 days
+            </li>
+            <li className="about-list-li">
+              Diagnostic procedures, e.g., EKG, MRI, CT scans, X-rays, Labs,
+              colonoscopy, EGD, Sleep Studies, cardiac catheterization
+            </li>
+            <li className="about-list-li">
+              Non–Surgical Procedures, e.g., PICC Line/Central Line removal or
+              placement, PEG removal, Blood Transfusions
+            </li>
+            <li className="about-list-li">
+              Outpatient Chemotherapy and Non IMRT Radiation
+            </li>
+            <li className="about-list-li">
+              Emergency Dental and Dental Services for Members &lt; 21 years
+              old,
+            </li>
+            <li className="about-list-li">
+              Emergency Dental Services for Members aged 21 years and older up
+            </li>
+            <li className="about-list-li">
+              Level I Behavioral Health Inpatient Facility and RTC Admissions
+            </li>
+            <li className="about-list-li">
+              Elective (scheduled) Hospitalizations
+            </li>
+            <li className="about-list-li">Medical Equipment (DME)</li>
+            <li className="about-list-li">Skilled Nursing Facility</li>
 
-          <div>
-            <li className="about-list-li">Scheduled outpatient procedures</li>
-            <li className="about-list-li">Workers’ compensation claims</li>
             <li className="about-list-li">
-              Independent Medical Examiner (IME)
+              Eyeglasses for members &lt; 21 years old
+            </li>
+            <li className="about-list-li">Family Planning Services</li>
+            <li className="about-list-li">
+              Physician Consultations and Office Visits
+            </li>
+            <li className="about-list-li">Emergency Transportation</li>
+            <li className="about-list-li">
+              Non-Emergency Transportation of less than 100 miles
             </li>
             <li className="about-list-li">
-              Prescription order pickups and refills
+              Behavioral Health Residential Facility AMPM 320-V Guidance
             </li>
+            <li className="about-list-li">
+              Non-Emergency Acute Inpatient Admissions
+            </li>
+            <li className="about-list-li">Medical Supplies (consumable)</li>
+            <li className="about-list-li">Home Health</li>
+            <li className="about-list-li">Hospice</li>
           </div>
         </ul>
-
       </div>
 
       <div className="about-section-bottom-banner">
