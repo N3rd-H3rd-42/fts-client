@@ -1,25 +1,30 @@
-import React, { useState } from "react";
-import PageHeading from "../components/pages/pageHeading";
-import "../css/contact.css";
+import React from 'react';
+import PageHeading from '../components/pages/pageHeading';
+import emailjs from 'emailjs-com';
+import '../css/contact.css';
 
 const Contact = () => {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values, "values");
-  };
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_FOOTER_TEMPLATE,
+  } = process.env;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = values;
-    // call api and ship values
-    console.log(data, "data");
+    emailjs
+      .sendForm(
+        REACT_APP_EMAIL_SERVICE_ID,
+        REACT_APP_EMAIL_FOOTER_TEMPLATE,
+        e.target,
+        REACT_APP_EMAIL_USER_ID
+      )
+      .then((response) => {
+        if (response) window.location.reload();
+      })
+      .catch((error) => {
+        console.log('!!!dev error!!!', error.text);
+      });
   };
 
   return (
@@ -47,28 +52,25 @@ const Contact = () => {
           </label>
           <input
             className="contact-form-input"
-            name="name"
+            name="from_name"
             type="text"
             placeholder="enter your name"
-            onChange={onChange}
           />
           <label className="contact-form-label">Your Email (required)</label>
           <input
             className="contact-form-input"
-            name="email"
+            name="sender_email"
             type="email"
             placeholder="enter your email"
-            onChange={onChange}
           />
           <label className="contact-form-label" htmlFor="name">
             Phone Number (required)
           </label>
           <input
             className="contact-form-input"
-            name="phone"
+            name="from_phone"
             type="phone"
             placeholder="enter your phone number"
-            onChange={onChange}
           />
         </div>
 
@@ -84,12 +86,10 @@ const Contact = () => {
             name="message"
             type="text"
             placeholder="enter a message"
-            onChange={onChange}
           />
           <button
             className="contact-form-submit-button"
             type="submit"
-            onSubmit={(e) => handleSubmit(e)}
           >
             SEND
           </button>
