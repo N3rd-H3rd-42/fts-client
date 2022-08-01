@@ -1,5 +1,5 @@
 import React from 'react';
-import emailsjs from 'emailjs-com';
+import emailjs from 'emailjs-com';
 import './footer.css';
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
   } = process.env;
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailsjs
+    emailjs
       .sendForm(
         REACT_APP_EMAIL_SERVICE_ID,
         REACT_APP_EMAIL_FOOTER_TEMPLATE,
