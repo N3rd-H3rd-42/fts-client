@@ -1,27 +1,31 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { rideRequest } from '../../redux/actions/rideRequestActions';
 
 const RequestARideForm = () => {
+  const dispatch = useDispatch();
   const [values, setValues] = useState({
-    requesterType: "",
-    name: "",
-    phone: "",
-    accchs: "",
-    pickup: "",
-    destination: "",
-    date: "",
-    time: "",
+    requesterType: '',
+    name: '',
+    phone: '',
+    ahcccsId: '',
+    pickup: '',
+    destination: '',
+    date: '',
+    time: '',
   });
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values, "values");
+    console.log(values, 'values');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
     // call api and ship values
-    console.log(data, "data");
+    dispatch(rideRequest({ ...data }));
+    console.log(data, 'data');
   };
 
   return (
@@ -30,8 +34,8 @@ const RequestARideForm = () => {
         <h1>
           <i
             className="fa-solid fa-car fa-2x"
-            style={{ paddingRight: "5px" }}
-          ></i>{" "}
+            style={{ paddingRight: '5px' }}
+          ></i>{' '}
           REQUEST A RIDE
         </h1>
 
@@ -62,7 +66,7 @@ const RequestARideForm = () => {
                 <input
                   type="radio"
                   name="requesterType"
-                  value={"case-manager"}
+                  value={'case-manager'}
                   onChange={onChange}
                 />
               </div>
@@ -74,7 +78,7 @@ const RequestARideForm = () => {
                 <input
                   type="radio"
                   name="requesterType"
-                  value={"patient"}
+                  value={'patient'}
                   onChange={onChange}
                 />
               </div>
@@ -96,9 +100,9 @@ const RequestARideForm = () => {
             />
             <input
               className="ride-form-input"
-              name="accchs"
+              name="ahcccsId"
               type="text"
-              placeholder="persons ACCCHS ID"
+              placeholder="persons AHCCCS ID"
               onChange={onChange}
             />
           </div>
@@ -146,9 +150,9 @@ const RequestARideForm = () => {
         <h1>
           <i
             className="fa-solid fa-person fa-2x"
-            style={{ paddingRight: "15px" }}
+            style={{ paddingRight: '15px' }}
           >
-            {" "}
+            {' '}
           </i>
           Need to register?
         </h1>
@@ -156,8 +160,8 @@ const RequestARideForm = () => {
           If you haven't used Future Trans Systems before but would like to,
           simply complete the ride request form and if you are a new client,
           we'll get you going swiftly. If you have questions or comments about
-          our services, please contact us directly. Let us show you the better way to travel for your
-          medical needs.
+          our services, please contact us directly. Let us show you the better
+          way to travel for your medical needs.
         </h3>
         <h3>Why use Future Trans Systems?</h3>
         <ul>
@@ -176,7 +180,8 @@ const RequestARideForm = () => {
         </ul>
 
         <div>
-        For questions or comments contact Monica at <h3 className="location-info-h3">monica@fts-nemt.com</h3>
+          For questions or comments contact Monica at{' '}
+          <h3 className="location-info-h3">monica@fts-nemt.com</h3>
         </div>
       </div>
     </div>
