@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './footer.css';
 
@@ -23,7 +23,11 @@ const Footer = () => {
       .catch((error) => {
         console.log('!!!dev error!!!', error.text);
       });
+
+    setSubmitted(true);
   };
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div id="footer">
@@ -88,6 +92,9 @@ const Footer = () => {
             SEND
           </button>
         </form>
+        <p>
+          {submitted ? 'Thank you, your request has been sent.' : null}
+        </p>
       </div>
     </div>
   );
