@@ -1,6 +1,7 @@
 import React from "react";
 
 const DriveWithFts = () => {
+  
   const handleClick = () => {
     window.location = "/apply";
     return;
@@ -18,13 +19,7 @@ const DriveWithFts = () => {
         </h3>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quo ipsam
-          ad officia dicta explicabo assumenda at magni, id aliquid totam
-          consequatur ratione facilis optio amet tempore aut alias fuga. A
-          nesciunt maxime perferendis illo consequatur quas quaerat consectetur
-          repudiandae architecto quod esse quibusdam possimus, laborum
-          temporibus odit repellat molestiae autem modi maiores. Laudantium
-          quibusdam aut delectus cum aperiam placeat!
+          Future Trans Systems is always looking for safe and reliable drivers. Applying is easy. Join our dynamic and flexible team by following the link below and completing our online application. Our team will help you apply for required credentials and get you on the road quickly.
         </p>
 
         <button onClick={handleClick} className="home-apply-btn">
