@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageHeading from '../components/pages/pageHeading';
 import emailjs from 'emailjs-com';
 import '../css/contact.css';
@@ -25,7 +25,11 @@ const Contact = () => {
       .catch((error) => {
         console.log('!!!dev error!!!', error.text);
       });
+
+    setSubmitted(true);
   };
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div className="contact-container">
@@ -72,6 +76,9 @@ const Contact = () => {
             type="phone"
             placeholder="enter your phone number"
           />
+          <p style={{ paddingTop: '20px' }}>
+            {submitted ? 'Thank you, your request has been sent.' : null}
+          </p>
         </div>
 
         <div className="contact-form-right-container">
