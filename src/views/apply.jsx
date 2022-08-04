@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PageHeading from "../components/pages/pageHeading";
+import emailjs from 'emailjs-com';
 import "../css/apply.css";
 
 const Apply = () => {
@@ -39,10 +40,29 @@ const Apply = () => {
     console.log(values, "values");
   };
 
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_APPLY_TEMPLATE,
+  } = process.env;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
     // call api and ship values
+    emailjs
+      .sendForm(
+        REACT_APP_EMAIL_SERVICE_ID,
+        REACT_APP_EMAIL_APPLY_TEMPLATE,
+        e.target,
+        REACT_APP_EMAIL_USER_ID
+      )
+      .then((response) => {
+        if (response) window.location.reload();
+      })
+      .catch((error) => {
+        console.log('!!!dev error!!!', error.text);
+      });
     console.log(data, "data");
   };
 
@@ -164,23 +184,23 @@ const Apply = () => {
             <div className="application-general-information-container">
               <h2>Personal Information</h2>
 
-              <label htmlFor="firstName">
+              <label htmlFor="first_name">
                 First Name
                 <input
                   placeholder="Enter your first name"
-                  name="firstName"
+                  name="first_name"
                   type="text"
                   onChange={onChange}
                   required={true}
                 />
               </label>
 
-              <label htmlFor="lastName">
+              <label htmlFor="last_name">
                 Last Name
                 <input
                   placeholder="Enter your last name"
                   type="text"
-                  name="lastName"
+                  name="last_name"
                   onChange={onChange}
                   required={true}
                 />
@@ -197,22 +217,22 @@ const Apply = () => {
                 />
               </label>
 
-              <label htmlFor="phone">
+              <label htmlFor="sender_phone">
                 Phone Number
                 <input
                   type="phone"
-                  name="phone"
+                  name="sender_phone"
                   placeholder="enter your phone number"
                   onChange={onChange}
                   required={true}
                 />
               </label>
 
-              <label htmlFor="email">
+              <label htmlFor="sender_email">
                 Email Address
                 <input
                   type="email"
-                  name="email"
+                  name="sender_email"
                   placeholder="enter your email"
                   onChange={onChange}
                   required={true}
@@ -241,7 +261,7 @@ const Apply = () => {
                     <input
                       type="radio"
                       value="yes"
-                      name="dui"
+                      name="dui_status"
                       onChange={onChange}
                     />{" "}
                   </div>
@@ -250,7 +270,7 @@ const Apply = () => {
                     <input
                       type="radio"
                       value="no"
-                      name="dui"
+                      name="dui_status"
                       onChange={onChange}
                       style={{ marginLeft: "12px" }}
                     />{" "}
@@ -288,7 +308,7 @@ const Apply = () => {
                   type="file"
                   name="drugScreening"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   // accept="image/png, image/jpeg"
                 />
               </label>
@@ -299,7 +319,7 @@ const Apply = () => {
                   type="file"
                   name="cpr"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -310,7 +330,7 @@ const Apply = () => {
                   type="file"
                   name="hippa"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -320,7 +340,7 @@ const Apply = () => {
                 <input
                   type="file"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   name="dot"
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
@@ -331,7 +351,7 @@ const Apply = () => {
                 <input
                   type="file"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   name="fingerPrintClearence"
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
@@ -343,7 +363,7 @@ const Apply = () => {
                   type="file"
                   name="defensiveDrivingCourse"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  // required={true}
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -354,7 +374,7 @@ const Apply = () => {
                   type="file"
                   onChange={(e) => onChange(e)}
                   name="sateAndNnjBackground"
-                  required={true}
+                  // required={true}
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
