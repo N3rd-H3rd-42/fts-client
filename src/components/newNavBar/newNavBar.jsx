@@ -39,12 +39,15 @@ const NewNavBar = () => {
     phone: "",
     accchs: "",
     pickup: "",
+    patientName: "",
+    facilityLocation: "",
     destination: "",
     date: "",
     time: "",
   });
 
   const [display, setDisplay] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const close = () => {
     setDisplay(false);
@@ -58,8 +61,31 @@ const NewNavBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
+
     // call api and ship values
     console.log(data, "data");
+
+    setSubmitted(true);
+
+    setValues({
+      requesterType: "",
+      name: "",
+      phone: "",
+      accchs: "",
+      pickup: "",
+      patientName: "",
+      facilityLocation: "",
+      destination: "",
+      date: "",
+      time: "",
+    });
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 1000);
+
+    setDisplay(!display);
+
   };
 
   const renderNavItems = () => {
@@ -135,12 +161,26 @@ const NewNavBar = () => {
               placeholder="enter your phone number"
               onChange={onChange}
             />
+            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
+              name="facilityLocation"
+              type="text"
+              placeholder="facility location"
+              onChange={onChange}
+            /> : null}
             <input
               name="accchs"
               type="text"
               placeholder="persons ACCCHS ID"
               onChange={onChange}
             />
+
+            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
+              name="patientsName"
+              type="text"
+              placeholder="patients name"
+              onChange={onChange}
+            /> : null}
+
             <input
               name="pickup"
               type="address"
@@ -163,14 +203,15 @@ const NewNavBar = () => {
               CONFIRM REQUEST
             </button>
           </form>
+          <p style={{ color: 'white' }}>{submitted ? 'Thank you, your ride request has been sent.' : null}</p>
         </Modal>
-          <button
-            className="nav-link ride-req-btn"
-            href="/"
-            onClick={() => setDisplay(!display)}
-          >
-            REQUEST A RIDE
-          </button>
+        <button
+          className="nav-link ride-req-btn"
+          href="/"
+          onClick={() => setDisplay(!display)}
+        >
+          REQUEST A RIDE
+        </button>
         {renderNavItems()}
       </ul>
     </nav>

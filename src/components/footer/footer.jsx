@@ -1,29 +1,36 @@
-import React, { useState } from "react";
-import "./footer.css";
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+import './footer.css';
 
 const Footer = () => {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values, "values");
-  };
-
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_FOOTER_TEMPLATE,
+  } = process.env;
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = values;
-    // call api and ship values
-    console.log(data, "data");
+    emailjs
+      .sendForm(
+        REACT_APP_EMAIL_SERVICE_ID,
+        REACT_APP_EMAIL_FOOTER_TEMPLATE,
+        e.target,
+        REACT_APP_EMAIL_USER_ID
+      )
+      .then((response) => {
+        if (response) window.location.reload();
+      })
+      .catch((error) => {
+        console.log('!!!dev error!!!', error.text);
+      });
+
+    setSubmitted(true);
   };
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div id="footer">
-
       <div className="footer-fts-location">
         <h3>Future Trans Systems</h3>
         <h3>Phoenix, Arizona</h3>
@@ -53,49 +60,42 @@ const Footer = () => {
       </nav>
 
       <div className="footer-contact-form">
-        <h2 style={{ color: "black" }}>
+        <h2 style={{ color: 'black' }}>
           <i
             className="fa-solid fa-envelope fa-2x"
-            style={{ paddingRight: "10px", color: "black" }}
+            style={{ paddingRight: '10px', color: 'black' }}
           ></i>
           CONTACT US
         </h2>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            onChange={onChange}
-          />
+          <input type="text" name="from_name" placeholder="Enter your name" />
           <input
             type="email"
-            name="email"
+            name="sender_email"
             placeholder="Enter your email"
-            onChange={onChange}
           />
           <input
-            name="phone"
             type="phone"
+            name="from_phone"
             placeholder="enter your phone number"
-            onChange={onChange}
           />
           <input
             className="contact-message-box"
             type="text"
             name="message"
             placeholder="Enter a message"
-            onChange={onChange}
           />
           <button
             className="footer-contact-form-button"
             type="submit"
-            onSubmit={(e) => handleSubmit(e)}
           >
             SEND
           </button>
         </form>
+        <p>
+          {submitted ? 'Thank you, your request has been sent.' : null}
+        </p>
       </div>
-      
     </div>
   );
 };

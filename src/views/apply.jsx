@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import PageHeading from "../components/pages/pageHeading";
+import emailjs from 'emailjs-com';
 import "../css/apply.css";
 
 const Apply = () => {
   const [values, setValues] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     phone: "",
     birthdate: "",
     license: "",
-    drugScreening: "",
+    drug_screening: "",
     cpr: "",
     dot: "",
     hippa: "",
     mvr: "",
-    fingerPrintClearence: "",
-    defensiveDrivingCourse: "",
-    stateAndNnjBackground: "",
-    dui: "",
+    finger_print_clearence: "",
+    defensive_driving_course: "",
+    state_And_Nnj_Background: "",
+    dui_status: "",
   });
+
+  const [submitted, setSubmitted] = useState(false);
 
   const onChange = (e) => {
     if (e.target.files) {
@@ -36,14 +39,53 @@ const Apply = () => {
     } else {
       setValues({ ...values, [e.target.name]: e.target.value });
     }
-    console.log(values, "values");
+    console.log(values, values.firstName)
   };
+
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_APPLY_TEMPLATE,
+  } = process.env;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
     // call api and ship values
+    emailjs
+      .sendForm(
+        REACT_APP_EMAIL_SERVICE_ID,
+        REACT_APP_EMAIL_APPLY_TEMPLATE,
+        e.target,
+        REACT_APP_EMAIL_USER_ID
+      )
+      .then((response) => {
+        if (response) window.location.reload();
+      })
+      .catch((error) => {
+        console.log('!!!dev error!!!', error.text);
+      });
     console.log(data, "data");
+
+    setValues({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      birthdate: "",
+      license: "",
+      drug_screening: "",
+      cpr: "",
+      dot: "",
+      hippa: "",
+      mvr: "",
+      finger_print_clearence: "",
+      defensive_driving_course: "",
+      state_And_Nnj_Background: "",
+      dui_status: "",
+    });
+
+    setSubmitted(true);
   };
 
   // const handleFileUpload = (e) => {
@@ -164,25 +206,27 @@ const Apply = () => {
             <div className="application-general-information-container">
               <h2>Personal Information</h2>
 
-              <label htmlFor="firstName">
+              <label htmlFor="first_name">
                 First Name
                 <input
                   placeholder="Enter your first name"
-                  name="firstName"
+                  name="first_name"
                   type="text"
-                  onChange={onChange}
+                  onChange={(e) => onChange(e)}
                   required={true}
+                  value={values.first_name}
                 />
               </label>
 
-              <label htmlFor="lastName">
+              <label htmlFor="last_name">
                 Last Name
                 <input
                   placeholder="Enter your last name"
                   type="text"
-                  name="lastName"
+                  name="last_name"
                   onChange={onChange}
                   required={true}
+                  value={values.last_name}
                 />
               </label>
 
@@ -194,6 +238,7 @@ const Apply = () => {
                   placeholder="select your birthdate"
                   onChange={onChange}
                   required={true}
+                  value={values.birthdate}
                 />
               </label>
 
@@ -205,10 +250,11 @@ const Apply = () => {
                   placeholder="enter your phone number"
                   onChange={onChange}
                   required={true}
+                  value={values.phone}
                 />
               </label>
 
-              <label htmlFor="email">
+              <label htmlFor="sender_email">
                 Email Address
                 <input
                   type="email"
@@ -216,6 +262,7 @@ const Apply = () => {
                   placeholder="enter your email"
                   onChange={onChange}
                   required={true}
+                  value={values.email}
                 />
               </label>
             </div>
@@ -241,7 +288,7 @@ const Apply = () => {
                     <input
                       type="radio"
                       value="yes"
-                      name="dui"
+                      name="dui_status"
                       onChange={onChange}
                     />{" "}
                   </div>
@@ -250,7 +297,7 @@ const Apply = () => {
                     <input
                       type="radio"
                       value="no"
-                      name="dui"
+                      name="dui_status"
                       onChange={onChange}
                       style={{ marginLeft: "12px" }}
                     />{" "}
@@ -278,7 +325,7 @@ const Apply = () => {
                   name="license"
                   onChange={(e) => onChange(e)}
                   required={true}
-                  // accept="image/png, image/jpeg"
+                // accept="image/png, image/jpeg"
                 />
               </label>
 
@@ -286,10 +333,11 @@ const Apply = () => {
                 Drug Screening (optional)
                 <input
                   type="file"
-                  name="drugScreening"
+                  name="drug_screening"
                   onChange={(e) => onChange(e)}
-                  required={true}
-                  // accept="image/png, image/jpeg"
+                  required={false}
+                // accept="image/png, image/jpeg"
+                value={values.drug_screening}
                 />
               </label>
 
@@ -299,8 +347,9 @@ const Apply = () => {
                   type="file"
                   name="cpr"
                   onChange={(e) => onChange(e)}
-                  required={true}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  required={false}
+                  value={values.cpr}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -310,8 +359,9 @@ const Apply = () => {
                   type="file"
                   name="hippa"
                   onChange={(e) => onChange(e)}
-                  required={true}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  required={false}
+                  value={values.hippa}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -320,9 +370,10 @@ const Apply = () => {
                 <input
                   type="file"
                   onChange={(e) => onChange(e)}
-                  required={true}
+                  required={false}
                   name="dot"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  value={values.dot}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -331,9 +382,10 @@ const Apply = () => {
                 <input
                   type="file"
                   onChange={(e) => onChange(e)}
-                  required={true}
-                  name="fingerPrintClearence"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  required={false}
+                  name="finger_print_clearence"
+                  value={values.finger_print_clearence}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -341,10 +393,11 @@ const Apply = () => {
                 Defensive Driving Course Certification (optional)
                 <input
                   type="file"
-                  name="defensiveDrivingCourse"
+                  name="defensive_driving_course"
                   onChange={(e) => onChange(e)}
-                  required={true}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  required={false}
+                  value={values.defensive_driving_course}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -353,9 +406,10 @@ const Apply = () => {
                 <input
                   type="file"
                   onChange={(e) => onChange(e)}
-                  name="sateAndNnjBackground"
-                  required={true}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  name="satte_And_Nnj_Background"
+                  value={values.state_And_Nnj_Background}
+                  required={false}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -366,7 +420,8 @@ const Apply = () => {
                   onChange={(e) => onChange(e)}
                   required={false}
                   name="mvr"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  value={values.mvr}
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
             </div>
@@ -375,13 +430,14 @@ const Apply = () => {
             SUBMIT APPLICATION
           </button>
         </form>
-        {/* 
+        {/*
         <img
           className="form-container-side-image"
           src="images/fts-logo.jpeg"
           alt="doctor"
         /> */}
       </div>
+      {submitted ? 'Thank you your application has been submitted' : null}
     </div>
   );
 };
