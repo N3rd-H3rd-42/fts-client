@@ -115,7 +115,7 @@ const Contact = () => {
           <h3 className="location-info-h3">101 N 55th St </h3>
           <h3 className="location-info-h3">Phoenix, AZ 85034 </h3>
           <h3 className="location-info-h3">Phone: (480) 410-2359</h3>
-          <h3 className="location-info-h3">monica@fts-nemt.com</h3>
+          <h3 className="location-info-h3">monicam@fts-nemt.com</h3>
         </div>
       </div>
     </div>
