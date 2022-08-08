@@ -171,7 +171,7 @@ const Apply = () => {
           <li className="how-to-apply-item">
             Upload all official Documents (optional) unless otherwise noted.
           </li>
-          <li className="how-to-apply-item">Contact us at support@fts.com</li>
+          <li className="how-to-apply-item">Contact us at monicam@fts.com</li>
           <li className="how-to-apply-item">
             All applicants must have valid drivers license and form of
             transportation.

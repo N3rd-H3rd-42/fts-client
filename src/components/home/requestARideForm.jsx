@@ -10,6 +10,8 @@ const RequestARideForm = () => {
     phone: '',
     ahcccsId: '',
     pickup: '',
+    patientName: "",
+    facilityLocation: "",
     destination: '',
     date: '',
     time: '',
@@ -26,7 +28,17 @@ const RequestARideForm = () => {
     // call api and ship values
     dispatch(rideRequest({ ...data }));
     console.log(data, 'data');
+    setSubmitted(true);
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+
+    window.location.reload();
+
   };
+
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div id="request-a-ride-section">
@@ -103,6 +115,21 @@ const RequestARideForm = () => {
               onChange={onChange}
               required
             />
+            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
+              name="facilityLocation"
+              type="text"
+              placeholder="facility location"
+              onChange={onChange}
+            /> : null}
+            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
+              name="patientsName"
+              type="text"
+              placeholder="patients name"
+              onChange={onChange}
+            /> : null}
+          </div>
+
+          <div className="ride-form-right-inputs">
             <input
               className="ride-form-input"
               name="ahcccsId"
@@ -111,9 +138,6 @@ const RequestARideForm = () => {
               onChange={onChange}
               required
             />
-          </div>
-
-          <div className="ride-form-right-inputs">
             <input
               className="ride-form-input"
               name="pickup"
@@ -154,6 +178,9 @@ const RequestARideForm = () => {
             CONFIRM REQUEST
           </button>
         </form>
+        <p style={{ paddingTop: '20px' }}>
+          {submitted ? 'Thank you, your request has been sent.' : null}
+        </p>
       </div>
 
       <div className="need-to-register">
@@ -191,7 +218,7 @@ const RequestARideForm = () => {
 
         <div>
           For questions or comments contact Monica at{' '}
-          <h3 className="location-info-h3">monica@fts-nemt.com</h3>
+          <h3 className="location-info-h3">monicam@fts-nemt.com</h3>
         </div>
       </div>
     </div>

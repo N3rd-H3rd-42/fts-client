@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Modal from "../reusableComponents/modal/modal";
 import "./newNavBar.css";
+import { useDispatch } from 'react-redux';
+import { rideRequest } from '../../redux/actions/rideRequestActions';
 
 const NewNavBar = () => {
+  const dispatch = useDispatch();
   const [clicked, setClicked] = useState(false);
   // const navigate = useNavigate();
   const items = [
@@ -64,6 +67,7 @@ const NewNavBar = () => {
 
     // call api and ship values
     console.log(data, "data");
+    dispatch(rideRequest({ ...data }));
 
     setSubmitted(true);
 
@@ -80,12 +84,14 @@ const NewNavBar = () => {
       time: "",
     });
 
+
     setTimeout(() => {
       setSubmitted(false);
+    }, 1250);
+
+    setTimeout(() => {
+      setDisplay(!display);
     }, 1000);
-
-    setDisplay(!display);
-
   };
 
   const renderNavItems = () => {
