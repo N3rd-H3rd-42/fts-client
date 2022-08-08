@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './reducers/authReducer';
 import { patientsReducer } from './reducers/patientsReducer';
+import { rideRequestReducer } from './reducers/rideRequestReducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
@@ -9,6 +10,7 @@ import thunk from 'redux-thunk';
 const rootReducer = {
   auth: authReducer,
   patients: patientsReducer,
+  rideRequest: rideRequestReducer,
 };
 
 // const middleware = [thunk];
