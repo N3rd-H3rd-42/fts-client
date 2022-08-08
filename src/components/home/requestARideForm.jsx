@@ -56,6 +56,7 @@ const RequestARideForm = () => {
                   name="requesterType"
                   value="facility"
                   onChange={onChange}
+                  required
                 />
               </div>
 
@@ -68,6 +69,7 @@ const RequestARideForm = () => {
                   name="requesterType"
                   value={'case-manager'}
                   onChange={onChange}
+                  required
                 />
               </div>
 
@@ -80,6 +82,7 @@ const RequestARideForm = () => {
                   name="requesterType"
                   value={'patient'}
                   onChange={onChange}
+                  required
                 />
               </div>
             </div>
@@ -90,6 +93,7 @@ const RequestARideForm = () => {
               type="text"
               placeholder="enter your name"
               onChange={onChange}
+              required
             />
             <input
               className="ride-form-input"
@@ -97,6 +101,7 @@ const RequestARideForm = () => {
               type="text"
               placeholder="enter your phone number"
               onChange={onChange}
+              required
             />
             <input
               className="ride-form-input"
@@ -104,6 +109,7 @@ const RequestARideForm = () => {
               type="text"
               placeholder="persons AHCCCS ID"
               onChange={onChange}
+              required
             />
           </div>
 
@@ -114,6 +120,7 @@ const RequestARideForm = () => {
               type="address"
               placeholder="enter pickup location"
               onChange={onChange}
+              required
             />
             <input
               className="ride-form-input"
@@ -121,18 +128,21 @@ const RequestARideForm = () => {
               type="address"
               placeholder="enter destination"
               onChange={onChange}
+              required
             />
             <input
               className="ride-form-input"
               name="date"
               type="date"
               onChange={onChange}
+              required
             />
             <input
               className="ride-form-input"
               name="time"
               type="time"
               onChange={onChange}
+              required
             />
           </div>
 
