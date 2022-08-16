@@ -275,7 +275,6 @@ const Apply = () => {
                   type="file"
                   name="cpr"
                   required={false}
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -286,7 +285,6 @@ const Apply = () => {
                   type="file"
                   name="hippa"
                   required={false}
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -297,7 +295,6 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="dot"
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -308,7 +305,6 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="finger_print_clearence"
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -319,7 +315,6 @@ const Apply = () => {
                   type="file"
                   name="defensive_driving_course"
                   required={false}
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
@@ -340,7 +335,6 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="mvr"
-
                   // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
