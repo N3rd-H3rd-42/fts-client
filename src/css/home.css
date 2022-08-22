@@ -282,40 +282,36 @@ justify-content: center; */
 
 #drive-with-fts {
   width: 100%;
-  height: auto;
-  background-image: url('../../public/images/nurse_pink_bg.jpg');
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  color: white;
-  padding: 25px 0px 0px 0px;
+  color: rgb(69, 69, 69);
+  border-top: 2px solid rgba(0, 0, 0, 0.194);
 }
 
-#drive-with-fts img {
-  height: 100px;
-  margin-top: -150px;
-}
-
-#drive-with-fts h1,
-h3 {
-  position: relative;
+#drive-with-fts-side-img {
+  height: auto;
+  width: 50%;
+  background-image: url('../../public/images/indigenous_medical.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #drive-with-fts h1 {
+  width: 60%;
   font-size: 40px;
+  text-align: center;
 }
 
 #drive-with-fts h3 {
+  width: 50%;
   font-size: 24px;
   text-align: center;
 }
 
 #drive-with-fts p {
-  width: 80%;
+  width: 50%;
   text-align: center;
   font-size: 16px;
   margin-bottom: 50px;
@@ -325,6 +321,9 @@ h3 {
   height: 100%;
   border-radius: 50%;
   position: absolute;
+  margin-top: -175px;
+  border: 1px solid rgba(213, 13, 13, 0.619);
+  margin-bottom: 25px;
 }
 
 .drive-with-fts-overlay {
@@ -333,13 +332,20 @@ h3 {
   height: 47%;
 }
 
+.drive-with-fts-main-content {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
 .bottom-overlay {
   width: 100%;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.432);
+  background-color: rgb(222, 65, 65);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 .bottom-overlay p {
@@ -353,17 +359,19 @@ h3 {
   max-width: 400px;
   height: 40px;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid rgb(255, 0, 0);
   border-radius: 50px;
   position: relative;
-  color: white;
+  color: rgb(255, 0, 0);
   float: right;
-  margin-bottom: 125px;
+  margin-bottom: 25px;
 }
 
 .home-apply-btn:hover {
   background-color: rgba(241, 8, 8, 0.5);
+  color: white;
   transition: 250ms ease-in-out;
+  border: 2px solid rgba(0, 0, 0, 0.317);
   /* border: 2px solid rgb(41, 41, 41); */
 }
 
@@ -375,8 +383,10 @@ h3 {
 .drive-with-fts-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  width: 50%;
+  flex-wrap: wrap;
 }
 
 .home-image-break {
