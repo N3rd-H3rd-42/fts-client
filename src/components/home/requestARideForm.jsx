@@ -30,11 +30,10 @@ const RequestARideForm = () => {
     console.log(data, 'data');
     setSubmitted(true);
 
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 500);
 
-    window.location.reload();
 
   };
 
