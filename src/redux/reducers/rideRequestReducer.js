@@ -9,10 +9,8 @@ export const rideRequestReducer = (state = initialState, { type }) => {
         case RIDE_REQUEST:
             return { ...state, status: null };
         case RIDE_REQUEST_SUCCESS:
-            window.alert('Your ride request has been successfully submitted.')
             return { ...state, status: true };
             case RIDE_REQUEST_ERROR:
-            window.alert('There was an error processing you request.')
             return { ...state, status: false };
         default:
             return { ...state };
