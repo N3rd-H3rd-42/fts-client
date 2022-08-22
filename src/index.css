@@ -171,7 +171,7 @@ button {
     z-index: 1;
   }
   .home-apply-btn {
-    width: 80%;
+    width: 70%;
   }
   #footer {
     flex-direction: column !important;
@@ -240,6 +240,13 @@ button {
 }
 
 @media screen and (max-width: 991px) {
+  #drive-with-fts-img {
+    height: 100px!important;
+    width: auto;
+  }
+  .bottom-overlay-p {
+    font-size: 12px;
+  }
   .modabl-box {
     font-size: smaller !important;
   }
@@ -320,6 +327,10 @@ button {
 
   .ride-req-btn {
     width: 96vw !important;
+  }
+
+  .home-apply-btn {
+    min-width: 100px!important;
   }
 }
 
