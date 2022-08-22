@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { rideRequest } from '../../redux/actions/rideRequestActions';
 
 const RequestARideForm = () => {
   const dispatch = useDispatch();
+  const smsStatus = useSelector(({ rideRequest: { status }}) => status);
+  const [submitted, setSubmitted] = useState(false);
   const [values, setValues] = useState({
     requesterType: '',
     name: '',
@@ -27,17 +29,21 @@ const RequestARideForm = () => {
     const data = values;
     // call api and ship values
     dispatch(rideRequest({ ...data }));
-    console.log(data, 'data');
-    setSubmitted(true);
-
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 500);
-
-
+    // setSubmitted(true);
   };
 
-  const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    if (smsStatus === true) {
+      setSubmitted(true)
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
+    }
+    if (smsStatus === false) {
+      window.alert('error processing request')
+    }
+  }, [smsStatus])
+
 
   return (
     <div id="request-a-ride-section">
