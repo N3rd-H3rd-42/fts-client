@@ -17,6 +17,7 @@ const RequestARideForm = () => {
     destination: '',
     date: '',
     time: '',
+    file: '',
   });
 
   const onChange = (e) => {
@@ -172,6 +173,12 @@ const RequestARideForm = () => {
               type="time"
               onChange={onChange}
               required
+            />
+             <input
+              name="file"
+              type="file"
+              placeholder="upload document"
+              onChange={onChange}
             />
           </div>
 

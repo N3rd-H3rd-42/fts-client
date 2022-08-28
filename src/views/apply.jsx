@@ -255,7 +255,7 @@ const Apply = () => {
                   type="file"
                   name="license"
                   required={true}
-                  // accept="image/png, image/jpeg"
+                // accept="image/png, image/jpeg"
                 />
               </label>
 
@@ -265,7 +265,7 @@ const Apply = () => {
                   type="file"
                   name="drug_screening"
                   required={false}
-                  // accept="image/png, image/jpeg"
+                // accept="image/png, image/jpeg"
                 />
               </label>
 
@@ -275,7 +275,7 @@ const Apply = () => {
                   type="file"
                   name="cpr"
                   required={false}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -285,7 +285,7 @@ const Apply = () => {
                   type="file"
                   name="hippa"
                   required={false}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -295,7 +295,7 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="dot"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -305,7 +305,7 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="finger_print_clearence"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -315,7 +315,7 @@ const Apply = () => {
                   type="file"
                   name="defensive_driving_course"
                   required={false}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -325,7 +325,7 @@ const Apply = () => {
                   type="file"
                   name="satte_And_Nnj_Background"
                   required={false}
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
 
@@ -335,7 +335,7 @@ const Apply = () => {
                   type="file"
                   required={false}
                   name="mvr"
-                  // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                // accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 />
               </label>
             </div>
@@ -351,7 +351,9 @@ const Apply = () => {
           alt="doctor"
         /> */}
       </div>
-      {submitted ? 'Thank you your application has been submitted' : null}
+      <p>
+        {submitted ? 'Thank you your application has been submitted' : null}
+      </p>
     </div>
   );
 };

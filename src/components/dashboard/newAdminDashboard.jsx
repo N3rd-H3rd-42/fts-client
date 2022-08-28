@@ -4,6 +4,10 @@ import {
   getAllPatients,
   getSinglePatientDetails,
 } from "../../redux/actions/patientActions";
+import {
+  getAllRides,
+  getSingleRideDetails,
+} from "../../redux/actions/rideRequestActions";
 import NewPatientModal from "./NewPatientModal";
 import PatientDetailsCard from "./PatientDetailsCard";
 // import { toast } from 'react-toastify';
@@ -26,7 +30,9 @@ import {
 const NewAdminDashboard = () => {
   const dispatch = useDispatch();
 
+  // const rideRequestList = useSelector(({ rides: {list } }) => list);
   const patientsList = useSelector(({ patients: { list } }) => list);
+  const selectedList = "";
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const notifiy = () => {
@@ -44,16 +50,21 @@ const NewAdminDashboard = () => {
     dispatch(getSinglePatientDetails(patientId));
   };
 
+  const handleSelectRideDetails = (rideId) => {
+    dispatch(getSingleRideDetails(rideId));
+  };
+
   useEffect(() => {
     dispatch(getAllPatients());
+    dispatch(getAllRides());
   }, [dispatch]);
 
   return (
     <>
       {/* <ToastContainer position='bottom-right' newestOnTop /> */}
         <TopNavWrapper>
-          <Button onClick={toggleNewPatientModal}>Patients</Button>
-          <Button onClick={toggleNewPatientModal}>Rides</Button>
+          <Button onClick={''}>Patients</Button>
+          <Button onClick={''}>Rides</Button>
         </TopNavWrapper>
       <NewPatientModal isOpen={isModalOpen} setIsOpen={toggleNewPatientModal} />
       <DashboardContainer>

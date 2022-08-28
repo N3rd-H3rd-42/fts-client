@@ -3,11 +3,21 @@ import Modal from "../reusableComponents/modal/modal";
 import "./newNavBar.css";
 import { useDispatch } from 'react-redux';
 import { rideRequest } from '../../redux/actions/rideRequestActions';
+import emailjs from 'emailjs-com';
 
 const NewNavBar = () => {
   const dispatch = useDispatch();
+  const [submitted, setSubmitted] = useState(false);
+  const [display, setDisplay] = useState(false);
   const [clicked, setClicked] = useState(false);
-  // const navigate = useNavigate();
+
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_APPLY_TEMPLATE,
+  } = process.env;
+
+
   const items = [
     {
       title: "home",
@@ -47,10 +57,9 @@ const NewNavBar = () => {
     destination: "",
     date: "",
     time: "",
+    file: "",
   });
 
-  const [display, setDisplay] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const close = () => {
     setDisplay(false);
@@ -58,15 +67,32 @@ const NewNavBar = () => {
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
-    console.log(values, "values");
+    // console.log(values, "values");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
 
+    // emailjs
+    // .sendForm(
+    //   REACT_APP_EMAIL_SERVICE_ID,
+    //   REACT_APP_EMAIL_APPLY_TEMPLATE,
+    //   e.target,
+    //   REACT_APP_EMAIL_USER_ID
+    // )
+    // .then((response) => {
+    //   if (response) {
+    //     window.location.reload();
+    //     setSubmitted(true);
+    //   }
+    // })
+    // .catch((error) => {
+    //   console.log('!!!dev error!!!', error.text);
+    // });
+
     // call api and ship values
-    console.log(data, "data");
+    // console.log(data, "data");
     dispatch(rideRequest({ ...data }));
 
     setSubmitted(true);
@@ -82,6 +108,7 @@ const NewNavBar = () => {
       destination: "",
       date: "",
       time: "",
+      file: ""
     });
 
 
@@ -123,7 +150,6 @@ const NewNavBar = () => {
           <div className="modalTitleContainer">
             <h2>Please complete the request form below.</h2>
           </div>
-
           <form onSubmit={(e) => handleSubmit(e)}>
             <h3 className="ride-modal-radio-h3">Who is requesting the ride?</h3>
             <div className="ride-modal-radio-container">
@@ -201,6 +227,15 @@ const NewNavBar = () => {
             />
             <input name="date" type="date" onChange={onChange} />
             <input name="time" type="time" onChange={onChange} />
+            <div>
+              <input
+                htmlFor="medical_file"
+                style={{ color: 'white' }}
+                type="file"
+                name="medical_file"
+                required={false}
+              />
+            </div>
             <button
               className="modalSubmitBtn"
               type="submit"
@@ -208,6 +243,7 @@ const NewNavBar = () => {
             >
               CONFIRM REQUEST
             </button>
+            {submitted ? 'Thank you your application has been submitted' : null}
           </form>
           <p style={{ color: 'white' }}>{submitted ? 'Thank you, your ride request has been sent.' : null}</p>
         </Modal>
