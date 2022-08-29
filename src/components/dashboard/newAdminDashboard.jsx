@@ -6,7 +6,7 @@ import {
 } from "../../redux/actions/patientActions";
 import {
   getAllRides,
-  getSingleRideDetails,
+  // getSingleRideDetails,
 } from "../../redux/actions/rideRequestActions";
 import NewPatientModal from "./NewPatientModal";
 import PatientDetailsCard from "./PatientDetailsCard";
@@ -32,7 +32,7 @@ const NewAdminDashboard = () => {
 
   // const rideRequestList = useSelector(({ rides: {list } }) => list);
   const patientsList = useSelector(({ patients: { list } }) => list);
-  const selectedList = "";
+  // const selectedList = "";
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const notifiy = () => {
@@ -50,9 +50,9 @@ const NewAdminDashboard = () => {
     dispatch(getSinglePatientDetails(patientId));
   };
 
-  const handleSelectRideDetails = (rideId) => {
-    dispatch(getSingleRideDetails(rideId));
-  };
+  // const handleSelectRideDetails = (rideId) => {
+  //   dispatch(getSingleRideDetails(rideId));
+  // };
 
   useEffect(() => {
     dispatch(getAllPatients());
