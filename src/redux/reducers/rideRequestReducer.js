@@ -30,6 +30,7 @@ export const rideRequestReducer = (state = initialState, { type, payload }) => {
                 selectedRide: { ...payload },
             };
         case CREATE_NEW_RIDE:
+            return { ...state };
         default:
             return { ...state };
     }

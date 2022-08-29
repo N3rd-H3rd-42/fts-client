@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updatePatientDetails } from "../../redux/actions/patientActions";
+import { updatePatientDetails, togglePatientIsActive, deletePatient } from "../../redux/actions/patientActions";
 import {
   PatientDetailsCardContainer,
   CardHeader,
@@ -42,6 +42,17 @@ const PatientDetailsCard = () => {
       setEditMode(false);
     }
   };
+
+  const handleToggleIsActive = (patientId) => {
+    dispatch(togglePatientIsActive(patientId));
+  };
+
+  const handleDeletePatient = (patientId) => {
+    const verifyActionInput = window.prompt('Are you sure you would like to delete this patient?\n\nWARNING: This action can not be undone.\n\nEnter yes and click OK to continue\n\nClick cancel to go back\n')
+    if (/^yes/i.test(verifyActionInput)) {
+      dispatch(deletePatient(patientId));
+    }
+  }
 
   return selectedPatient?._id ? (
     <PatientDetailsCardContainer>
@@ -234,9 +245,9 @@ const PatientDetailsCard = () => {
           </>
         ) : (
           <>
-            <Button disabled>Deactivate</Button>
+            <Button onClick={() => handleToggleIsActive(selectedPatient?._id)}>Deactivate</Button>
             <Button onClick={toggleEditMode}>Edit Patient</Button>
-            <Button disabled>Delete</Button>
+            <Button onClick={() => handleDeletePatient(selectedPatient?._id)}>Delete</Button>
           </>
         )}
       </CardFooter>
