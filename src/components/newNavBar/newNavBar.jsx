@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import Modal from "../reusableComponents/modal/modal";
-import "./newNavBar.css";
+import React, { useState } from 'react';
+import Modal from '../reusableComponents/modal/modal';
+import './newNavBar.css';
 import { useDispatch } from 'react-redux';
 import { rideRequest } from '../../redux/actions/rideRequestActions';
+import emailjs from 'emailjs-com';
 
 const NewNavBar = () => {
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_RIDE_REQUEST_TEMPLATE,
+  } = process.env;
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
   const [display, setDisplay] = useState(false);
@@ -12,46 +18,45 @@ const NewNavBar = () => {
 
   const items = [
     {
-      title: "home",
-      url: "/",
-      cName: "nav-item",
+      title: 'home',
+      url: '/',
+      cName: 'nav-item',
     },
     {
-      title: "about",
-      url: "/about",
-      cName: "nav-item",
+      title: 'about',
+      url: '/about',
+      cName: 'nav-item',
     },
     {
-      title: "contact",
-      url: "/contact",
-      cName: "nav-item",
+      title: 'contact',
+      url: '/contact',
+      cName: 'nav-item',
     },
     {
-      title: "apply",
-      url: "/apply",
-      cName: "nav-item",
+      title: 'apply',
+      url: '/apply',
+      cName: 'nav-item',
     },
     {
-      title: "login",
-      url: "/login",
-      cName: "nav-item",
+      title: 'login',
+      url: '/login',
+      cName: 'nav-item',
     },
   ];
 
   const [values, setValues] = useState({
-    requesterType: "",
-    name: "",
-    phone: "",
-    accchs: "",
-    pickup: "",
-    patientName: "",
-    facilityLocation: "",
-    destination: "",
-    date: "",
-    time: "",
-    file: "",
+    requesterType: '',
+    name: '',
+    phone: '',
+    ahcccsId: '',
+    pickup: '',
+    patientsName: '',
+    facilityLocation: '',
+    destination: '',
+    date: '',
+    time: '',
+    file: '',
   });
-
 
   const close = () => {
     setDisplay(false);
@@ -69,22 +74,27 @@ const NewNavBar = () => {
     // call api and ship values
     // console.log(data, "data");
     dispatch(rideRequest({ ...data }));
+    emailjs.sendForm(
+      REACT_APP_EMAIL_SERVICE_ID,
+      REACT_APP_EMAIL_RIDE_REQUEST_TEMPLATE,
+      e.target,
+      REACT_APP_EMAIL_USER_ID
+    );
 
     setSubmitted(true);
 
     setValues({
-      requesterType: "",
-      name: "",
-      phone: "",
-      accchs: "",
-      pickup: "",
-      patientName: "",
-      facilityLocation: "",
-      destination: "",
-      date: "",
-      time: "",
+      requesterType: '',
+      name: '',
+      phone: '',
+      accchs: '',
+      pickup: '',
+      patientName: '',
+      facilityLocation: '',
+      destination: '',
+      date: '',
+      time: '',
     });
-
 
     setTimeout(() => {
       setSubmitted(false);
@@ -116,10 +126,10 @@ const NewNavBar = () => {
       <img src="./images/fts-logo.jpeg" className="nav-logo" alt="fts-logo" />
 
       <div className="menu-icon" onClick={onHandleClick}>
-        <i className={clicked ? "fas fa-times fa-2x" : "fas fa-bars fa-2x"}></i>
+        <i className={clicked ? 'fas fa-times fa-2x' : 'fas fa-bars fa-2x'}></i>
       </div>
 
-      <ul className={clicked ? "nav-list active" : "nav-list"}>
+      <ul className={clicked ? 'nav-list active' : 'nav-list'}>
         <Modal display={display} close={close}>
           <div className="modalTitleContainer">
             <h2>Please complete the request form below.</h2>
@@ -141,7 +151,7 @@ const NewNavBar = () => {
                 <input
                   type="radio"
                   name="requesterType"
-                  value={"case-manager"}
+                  value={'case-manager'}
                   onChange={onChange}
                 />
               </div>
@@ -150,7 +160,7 @@ const NewNavBar = () => {
                 <input
                   type="radio"
                   name="requesterType"
-                  value={"patient"}
+                  value={'patient'}
                   onChange={onChange}
                 />
               </div>
@@ -167,25 +177,31 @@ const NewNavBar = () => {
               placeholder="enter your phone number"
               onChange={onChange}
             />
-            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
-              name="facilityLocation"
-              type="text"
-              placeholder="facility location"
-              onChange={onChange}
-            /> : null}
+            {values.requesterType === 'facility' ||
+            values.requesterType === 'case-manager' ? (
+              <input
+                name="facilityLocation"
+                type="text"
+                placeholder="facility location"
+                onChange={onChange}
+              />
+            ) : null}
             <input
-              name="accchs"
+              name="ahcccsId"
               type="text"
-              placeholder="persons ACCCHS ID"
+              placeholder="persons AHCCCS ID"
               onChange={onChange}
             />
 
-            {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
-              name="patientsName"
-              type="text"
-              placeholder="patients name"
-              onChange={onChange}
-            /> : null}
+            {values.requesterType === 'facility' ||
+            values.requesterType === 'case-manager' ? (
+              <input
+                name="patientsName"
+                type="text"
+                placeholder="patients name"
+                onChange={onChange}
+              />
+            ) : null}
 
             <input
               name="pickup"
@@ -206,7 +222,7 @@ const NewNavBar = () => {
                 htmlFor="medical_file"
                 style={{ color: 'white' }}
                 type="file"
-                name="medical_file"
+                name="file"
                 required={false}
               />
             </div>
@@ -219,7 +235,9 @@ const NewNavBar = () => {
             </button>
             {submitted ? 'Thank you your application has been submitted' : null}
           </form>
-          <p style={{ color: 'white' }}>{submitted ? 'Thank you, your ride request has been sent.' : null}</p>
+          <p style={{ color: 'white' }}>
+            {submitted ? 'Thank you, your ride request has been sent.' : null}
+          </p>
         </Modal>
         <button
           className="nav-link ride-req-btn"
