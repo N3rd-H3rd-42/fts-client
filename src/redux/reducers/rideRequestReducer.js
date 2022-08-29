@@ -27,7 +27,7 @@ export const rideRequestReducer = (state = initialState, { type, payload }) => {
         case UPDATE_RIDE_DETAILS:
             return {
                 ...state,
-                selectedPatient: { ...payload },
+                selectedRide: { ...payload },
             };
         case CREATE_NEW_RIDE:
         default:

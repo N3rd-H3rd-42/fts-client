@@ -3,20 +3,12 @@ import Modal from "../reusableComponents/modal/modal";
 import "./newNavBar.css";
 import { useDispatch } from 'react-redux';
 import { rideRequest } from '../../redux/actions/rideRequestActions';
-import emailjs from 'emailjs-com';
 
 const NewNavBar = () => {
   const dispatch = useDispatch();
   const [submitted, setSubmitted] = useState(false);
   const [display, setDisplay] = useState(false);
   const [clicked, setClicked] = useState(false);
-
-  const {
-    REACT_APP_EMAIL_SERVICE_ID,
-    REACT_APP_EMAIL_USER_ID,
-    REACT_APP_EMAIL_APPLY_TEMPLATE,
-  } = process.env;
-
 
   const items = [
     {
@@ -74,23 +66,6 @@ const NewNavBar = () => {
     e.preventDefault();
     const data = values;
 
-    // emailjs
-    // .sendForm(
-    //   REACT_APP_EMAIL_SERVICE_ID,
-    //   REACT_APP_EMAIL_APPLY_TEMPLATE,
-    //   e.target,
-    //   REACT_APP_EMAIL_USER_ID
-    // )
-    // .then((response) => {
-    //   if (response) {
-    //     window.location.reload();
-    //     setSubmitted(true);
-    //   }
-    // })
-    // .catch((error) => {
-    //   console.log('!!!dev error!!!', error.text);
-    // });
-
     // call api and ship values
     // console.log(data, "data");
     dispatch(rideRequest({ ...data }));
@@ -108,7 +83,6 @@ const NewNavBar = () => {
       destination: "",
       date: "",
       time: "",
-      file: ""
     });
 
 
