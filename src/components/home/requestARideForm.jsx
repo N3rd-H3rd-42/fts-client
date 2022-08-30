@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rideRequest } from '../../redux/actions/rideRequestActions';
+import emailjs from 'emailjs-com';
 
 const RequestARideForm = () => {
+  const {
+    REACT_APP_EMAIL_SERVICE_ID,
+    REACT_APP_EMAIL_USER_ID,
+    REACT_APP_EMAIL_RIDE_REQUEST_TEMPLATE,
+  } = process.env;
   const dispatch = useDispatch();
   const smsStatus = useSelector(({ rideRequest: { status }}) => status);
   const [submitted, setSubmitted] = useState(false);
@@ -12,11 +18,12 @@ const RequestARideForm = () => {
     phone: '',
     ahcccsId: '',
     pickup: '',
-    patientName: "",
+    patientsName: "",
     facilityLocation: "",
     destination: '',
     date: '',
     time: '',
+    file: '',
   });
 
   const onChange = (e) => {
@@ -27,8 +34,13 @@ const RequestARideForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = values;
-    // call api and ship values
     dispatch(rideRequest({ ...data }));
+    emailjs.sendForm(
+      REACT_APP_EMAIL_SERVICE_ID,
+      REACT_APP_EMAIL_RIDE_REQUEST_TEMPLATE,
+      e.target,
+      REACT_APP_EMAIL_USER_ID,
+    )
     // setSubmitted(true);
   };
 
@@ -172,6 +184,12 @@ const RequestARideForm = () => {
               type="time"
               onChange={onChange}
               required
+            />
+             <input
+              name="file"
+              type="file"
+              placeholder="upload document"
+              onChange={onChange}
             />
           </div>
 
