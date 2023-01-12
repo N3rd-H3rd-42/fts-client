@@ -16,6 +16,7 @@ const RequestARideForm = () => {
     requesterType: '',
     name: '',
     phone: '',
+    birthdate: '',
     ahcccsId: '',
     pickup: '',
     patientsName: "",
@@ -132,6 +133,7 @@ const RequestARideForm = () => {
               onChange={onChange}
               required
             />
+
             {values.requesterType === "facility" || values.requesterType === "case-manager" ? <input
               name="facilityLocation"
               type="text"
@@ -144,6 +146,15 @@ const RequestARideForm = () => {
               placeholder="patients name"
               onChange={onChange}
             /> : null}
+
+            <input
+              className="ride-form-input"
+              name="birthdate"
+              type="text"
+              placeholder={values.requesterType === "facility" || values.requesterType === "case-manager" ? "patients birthdate mm / dd / yyyy" : "your birthdate mm / dd / yyyy" }
+              onChange={onChange}
+              required
+            />
           </div>
 
           <div className="ride-form-right-inputs">
@@ -151,7 +162,7 @@ const RequestARideForm = () => {
               className="ride-form-input"
               name="ahcccsId"
               type="text"
-              placeholder="persons AHCCCS ID"
+              placeholder={values.requesterType === "facility" || values.requesterType === "case-manager" ? "patients AHCCCS ID" : "your AHCCCS ID" }
               onChange={onChange}
               required
             />
