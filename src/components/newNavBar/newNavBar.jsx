@@ -48,6 +48,7 @@ const NewNavBar = () => {
     requesterType: '',
     name: '',
     phone: '',
+    birthdate: '',
     ahcccsId: '',
     pickup: '',
     patientsName: '',
@@ -189,7 +190,7 @@ const NewNavBar = () => {
             <input
               name="ahcccsId"
               type="text"
-              placeholder="persons AHCCCS ID"
+              placeholder={ values.requesterType === "facility" || values.requesterType === "case-manager" ? "patients AHCCCS ID" : "your AHCCCS ID" }
               onChange={onChange}
             />
 
@@ -202,6 +203,15 @@ const NewNavBar = () => {
                 onChange={onChange}
               />
             ) : null}
+
+            <input
+              className="ride-form-input"
+              name="birthdate"
+              type="text"
+              placeholder={values.requesterType === "facility" || values.requesterType === "case-manager" ? "patients birthdate mm / dd / yyyy" : "your birthdate mm / dd / yyyy" }
+              onChange={onChange}
+              required
+            />
 
             <input
               name="pickup"
